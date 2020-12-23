@@ -14,7 +14,7 @@ function App() {
   dispatch(getRealUserLocation());
 
   const backgroundImage = {
-    background: 'url("https://images.unsplash.com/photo-1526422392024-1ff58f85bfb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMzg2ODF8MHwxfHJhbmRvbXx8fHx8fHx8&ixlib=rb-1.2.1&q=80&w=1080")'
+    background: "url('https://images.unsplash.com/photo-1526422392024-1ff58f85bfb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMzg2ODF8MHwxfHJhbmRvbXx8fHx8fHx8&ixlib=rb-1.2.1&q=80&w=1080') center center / cover no-repeat fixed"
   }
 
   return (
