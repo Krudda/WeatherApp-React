@@ -12,6 +12,8 @@ async function getUserLocation() {
     // console.log('REAL location: ', location)
     return location;
   } catch (err) {
+    console.log('Ошибка запроса локации!!!')
+    return {city: 'London', country: 'GB'}
   }
 }
 
