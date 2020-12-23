@@ -1,0 +1,9 @@
+.container {
+  height: 100vh;
+  background: url("") center center / cover no-repeat fixed
+}
+.wrapper {
+  padding: 0 60px;
+  min-height: calc(100vh - 3rem);
+  overflow: hidden;
+}

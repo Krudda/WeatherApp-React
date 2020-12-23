@@ -1,12 +1,13 @@
-import styles from './mapBlock.module.scss';
 import {connect}  from 'react-redux';
 
+import styles from './mapBlock.module.scss';
 
 const MapBlock = ({location}) => {
-    console.log('location:', location) ;
+
+    console.log('Map Location: ', location)
+
     return (
-        <div className = {styles.block}>
-            <p>Map</p>
+        <div className = {styles.block} >
             <p>User from {location.city}</p>
         </div>
     )
