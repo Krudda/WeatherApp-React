@@ -13,6 +13,7 @@ const SearchBlock = () => {
                 <button type='submit' className = {styles.button}>
                     search
                 </button>
+                <div className = {styles.button_mic}></div>
             </form>
             {/* <form>
                 <input type="text" placeholder="search city">
