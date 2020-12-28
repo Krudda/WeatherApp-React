@@ -1,5 +1,88 @@
+@import '../../../assets/scss/constants';
+@import '../../../assets/scss/buttons';
+
 .block {
-    width: 40%;
-    height: 80%;
-    background-color: lightgreen;
+    // height: 80%;
+        .form {
+            display: flex;
+            position: relative;
+            .input {
+                padding: 0 24px 0 10px;
+                width: 300px;
+                height: 4rem;
+                color: $main-text-color;
+                border-radius: 6px 0 0 6px;
+                border: 1.4px solid rgba(180,184,187,.8);
+                outline: none;
+                background-color: $secondary-gray;
+
+                font-family: Roboto-Light, tahoma, sans-serif;
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                text-transform: uppercase;
+                &::placeholder {
+                    color: $main-text-color;
+                    text-transform: lowercase;
+                }
+            //     @media (max-width: 720px ) {
+            //       width: 30vw;
+            //    }
+            //    @media (max-width: 480px ) {
+            //     width: 190px;
+            //     }
+                
+            }
+            // #button-voice {
+            //     padding: 0;
+            //     position: absolute;
+            //     right: 95px;
+            //     width: 20px;
+            //     height: 40px;
+            //     background-color: transparent;
+            //     border: none;
+            //     background-image: url('/assets/img/mic.png');
+            //     background-position: center;
+            //     background-repeat: no-repeat;
+            //     background-size: 100%;
+            //     outline: none;
+            //     cursor: pointer;
+            //     &.active {
+            //       background-image: url('/assets/img/mic-active.png');
+            //     }
+            //     @media (max-width: 720px ) {
+            //       right: 10vw;
+            //    }
+            //    @media (max-width: 550px ) {
+            //     right: 60px;
+            // }
+            // }
+        }
+    //     @media (max-width: 480px ) {
+    //       margin-top: 1rem;
+    //    }
+    .button {
+        display: block;
+        height: 4rem;
+        width: 9rem;
+        border-radius: 0 5px 5px 0;
+        background-color: $primary-gray;
+        border: none;
+        cursor: pointer;
+        color: $main-text-color;
+        font-family: Roboto-Light, tahoma, sans-serif;
+        font-size: 1.4rem;
+        &:focus, &:hover { 
+            outline: none;
+        }
+        &:hover {
+            background-color: $primary-gray-active !important;
+            color: gray;
+        }
+    }
+    @media (max-width: 720px ) {
+        width: 10vw;
+    }
+    @media (max-width: 550px ) {
+        width: 55px;
+    }
 }

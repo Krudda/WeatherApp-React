@@ -6,9 +6,7 @@ const weatherUnit =  'M';
 const key = keys.weather3KEY;
 
 async function getCurrentWeather(location) {
-
-    let city = location.city;
-    let country = location.country;
+    let {city, country} = location;
     const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}, ${country}&days=7&lang=en&units=${weatherUnit}&key=${key}`;
     console.log('url: ', url)
     try {
@@ -19,9 +17,9 @@ async function getCurrentWeather(location) {
         }
 
     // handleBadRequest();
-  } catch (err) {
-    return false;
-  }
+    } catch (err) {
+        return false;
+    }
 }
 
 export default getCurrentWeather;

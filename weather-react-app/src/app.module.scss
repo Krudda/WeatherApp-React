@@ -1,3 +1,38 @@
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url('/assets/fonts/Roboto-Regular.ttf');
+}
+@font-face {
+  font-family: Roboto-Light;
+  src: url('/assets/fonts/Roboto-Light.ttf');
+}
+
+html,
+body,
+ul,
+ol {
+margin:  0;
+padding: 0;
+}
+html {
+  font-size: 10px;
+}
+* {
+  box-sizing: border-box;
+}
+body { 
+font-family: Roboto-Regular, tahoma, sans-serif;
+background: linear-gradient(rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%) center center / cover fixed,url('https://images.unsplash.com/photo-1563823856120-88d1fe6b75bc?ixlib=rb-1.2.1&q=99&fm=jpg&crop=entropy&cs=tinysrgb&w=2048&fit=max&ixid=eyJhcHBfaWQiOjcwOTV9') center center / cover no-repeat fixed;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+-webkit-box-shadow: 0 0 0px 10em white inset !important;
+-webkit-text-fill-color: yellow !important;
+}
+
 .container {
   height: 100vh;
 }
