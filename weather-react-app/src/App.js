@@ -18,7 +18,6 @@ function App({image}) {
   dispatch(getRealUserLocation());
   dispatch(setMainBackground());
 
-
   const backgroundImage = {
 
     background: `url(${image}) center center / cover no-repeat fixed`
