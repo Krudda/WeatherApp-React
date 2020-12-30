@@ -1,14 +1,15 @@
-import {SET_MAIN_BACKGROUND, GET_USER_LOCATION, GET_WEATHER} from './types';
+import {SET_MAIN_BACKGROUND, GET_USER_LOCATION, GET_WEATHER, SET_SEARCH_LOCATION} from './types';
 import getUserLocation from '../services/getUserLocation';
 import getMainBackground from '../services/getMainBackground';
 import getCurrentWeather from '../services/getWeather';
 
-// export function setUserLocation(location) {
-//     return {
-//         type: SET_USER_LOCATION, 
-//         payload: location
-//     }
-// }
+export function setSearchLocation(location) {
+    console.log("action")
+    return {
+        type: SET_SEARCH_LOCATION, 
+        payload: {location}
+    }
+}
 
 export function getRealUserLocation() {
     return async dispatch => {

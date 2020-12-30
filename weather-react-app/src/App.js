@@ -16,7 +16,7 @@ function App({image}) {
 
   const dispatch = useDispatch();
   dispatch(getRealUserLocation());
-  dispatch(setMainBackground());
+  // dispatch(setMainBackground());
 
   const backgroundImage = {
 
