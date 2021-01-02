@@ -1,4 +1,4 @@
-@import '../../assets/scss/constants';
+@import '../../../assets/scss/constants';
 
 .button {
     display: block;
@@ -45,7 +45,7 @@
 .button-update {
     position: relative;
     padding: 3px 3px 0;
-    background-image: url('../../assets/images/upd-bg1.png');
+    background-image: url('../../../assets/images/upd-bg1.png');
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 80%;
@@ -59,7 +59,7 @@
     width: 15px;
     top: 3px;
     right: 3px;
-    background-image: url('../../assets/images/upd-icon.png');
+    background-image: url('../../../assets/images/upd-icon.png');
     background-position: top right;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -80,12 +80,12 @@
 
 }
 .speaker {
-    background-image: url('../../assets/images/speaker.png');
+    background-image: url('../../../assets/images/speaker.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 60%;
     outline: none;
     &.active {
-      background-image: url('../../assets/images/speaker-active.png');
+      background-image: url('../../../assets/images/speaker-active.png');
     }
   }

@@ -1,0 +1,21 @@
+@import '../../../../assets/scss/_constants';
+
+.w_header {
+    height: 20%;
+    font-size: 4rem;
+    text-transform: uppercase;
+    line-height: 4rem;
+    color: $colorized-text;
+    border-bottom: 1px solid $main-text-color;
+    &.hidden {
+        display: none;
+    }
+    @media (max-width: 550px ) {
+        height: 30%;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    .w_header_country {
+        font-size: 3rem;
+    }
+}
