@@ -1,0 +1,47 @@
+@import '../../../assets/scss/_constants';
+
+.temp {
+    display: flex;
+    justify-content: center;
+    .temp_data {
+        font-size: 20rem;
+        line-height: 20rem;
+        letter-spacing: -2rem;
+        color: $colorized-text;
+    }
+} 
+.temp_dimension {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    .degree {
+        text-align: left;
+        font-size: 20rem;
+        line-height: 20rem;
+        color: $colorized-text;
+    }
+    .degree_dimension {
+        display: block;
+        text-align: center;
+        margin-top: -11rem;
+        font-size: 8rem;
+    }
+}
+.day_temp {
+    display: flex;
+    justify-content: flex-end;
+    width: 55%;
+    font-size: 5rem;
+    @media (max-width: 550px ) {
+        font-size: 7rem;
+    }
+}
+.day_degree {
+    font-size: 5rem;
+}
+.day_degree_dimension {
+    display: block;
+    text-align: center;
+    margin-top: -3rem;
+    font-size: 2rem;
+}

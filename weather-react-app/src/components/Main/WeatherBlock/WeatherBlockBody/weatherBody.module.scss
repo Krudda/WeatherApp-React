@@ -11,23 +11,7 @@
         flex-direction: column;
     }
 }
-.temp_dimension {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    .degree {
-        text-align: left;
-        font-size: 20rem;
-        line-height: 20rem;
-        color: $colorized-text;
-    }
-    .degree_dimension {
-        display: block;
-        text-align: center;
-        margin-top: -11rem;
-        font-size: 8rem;
-    }
-}
+
 .date_time {
     padding-top: 10px;
     font-family: Roboto-Light, tahoma, sans-serif;
@@ -44,16 +28,6 @@
         align-items: center;
         width: 100%;
     }
-    .temp {
-        display: flex;
-        justify-content: center;
-        .temp_data {
-            font-size: 20rem;
-            line-height: 20rem;
-            letter-spacing: -2rem;
-            color: $colorized-text;
-        }
-    }    
 }
 
 .desc {
@@ -98,3 +72,4 @@
         }
     }
 }
+

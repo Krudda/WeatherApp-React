@@ -1,5 +1,5 @@
 import DateTime from './DateTime';
-import CurrentTemp from './CurrentTemp';
+import TempBlock from '../../../common/TempBlock/TempBlock';
 import WeatherDescription from './WeatherDescription';
 
 import  styles from './weatherBody.module.scss';
@@ -9,7 +9,7 @@ const WeatherBlockBody = ({location}) => {
         <div className = {styles.body}>
             <div className = {styles.date_temp}>
                 <DateTime/>
-                <CurrentTemp/>
+                <TempBlock temp = '27' temp_dimension = 'c'/>
             </div>
             <WeatherDescription/>
         </div>

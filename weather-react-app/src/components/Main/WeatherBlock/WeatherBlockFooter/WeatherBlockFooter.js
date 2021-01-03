@@ -1,6 +1,14 @@
-const WeatherBlockFooter = ({location}) => {
+import DayForecast from './DayForecast';
+
+import styles from './weatherFooter.module.scss'
+
+const WeatherBlockFooter = ({forecast}) => {
     return (
-        <h2>Forecast for {location.city}</h2>
+        <div className = {styles.forecast}>
+            <DayForecast/>
+            <DayForecast/>
+            <DayForecast/>
+        </div>
     )
 }
 export default WeatherBlockFooter;
