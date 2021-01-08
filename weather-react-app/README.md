@@ -3,4 +3,8 @@ SASS
 CSS-modules
 prop-types
 Redux
-classNames
+library classNames
+API:
+    - Yandex.Map
+    - Ipinfo
+    - Weatherbit
