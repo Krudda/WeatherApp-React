@@ -13,3 +13,11 @@ export const coordinatesConvertor = (num) => {
     const second = Math.round((rawMinute % 1) * 60);
     return `${degree}°${minute}′${second}′′`;
 };
+
+export const days = ['Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'];

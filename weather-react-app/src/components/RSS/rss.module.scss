@@ -1,5 +1,39 @@
-.rss {
+@import '../../assets/scss/_constants';
+
+.rss_area {
+    display: inline-block;
+    position: fixed;
+    height: 3rem;
     width: 100%;
-    height: 50px;
-    background-color: lime;
+    padding-left: 120%;
+    overflow: hidden;
+    box-sizing: content-box;
+    color: $main-text-color;
+    background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.5) 85%, rgba(0,0,0,0.1) 100%);  
+    @media (max-width: 980px ) {
+        top: 0;
+        background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,0.6) 100%);  
+    }
+
+    .rss { 
+        white-space: nowrap;
+        animation: animation 80s linear infinite;
+        @keyframes animation {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-485%, 0); }
+        }
+        p {
+            margin-top: 1rem;
+            display: inline-block;
+            padding-right: 2rem;
+            font-size: 1.2rem;
+            font-family: Roboto-Light, tahoma, sans-serif;
+            &:nth-child(5n+5) {
+                padding-right: 6rem;
+            }
+        }
+        .rss_date {
+            color: $colorized-text;
+        }
+    }
 }
