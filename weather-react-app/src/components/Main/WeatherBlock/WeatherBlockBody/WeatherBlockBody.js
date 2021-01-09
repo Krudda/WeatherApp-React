@@ -20,6 +20,8 @@ const WeatherBlockBody = ({weather}) => {
     )
 }
 
+
+
 // WeatherBlockBody.propTypes = {
 //     forecast: PropTypes.array
 // }
