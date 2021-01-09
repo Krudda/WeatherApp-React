@@ -4,14 +4,13 @@ const WeatherImage = ({image, addClass})  => {
     const {id_icon, description} = image;
     const forecast = addClass? `${addClass}_` : '';
 
-    const imgURL = `/images/${id_icon}.svg`;
-
-    console.log('imgURL', imgURL)
+    const imgURL_svg = `/images/${id_icon}.svg`;
+    const imgURL_png = `/images/${id_icon}.png`;
+    const defaultURL = '/images/c03d.svg';
 
     return (
             <img className = {styles[`${forecast}image`]}
-                src = {imgURL}
-                // || {`../../assets/images/${id_icon}.png`}
+                src = {imgURL_svg || imgURL_png || defaultURL}
                 alt = {description}
             />
     )

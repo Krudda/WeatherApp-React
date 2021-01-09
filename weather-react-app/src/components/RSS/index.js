@@ -1,6 +1,6 @@
 import  {connect} from 'react-redux';
 import RSSDayForecast from './RSSDayForecast';
-import {days} from '../../assets/utils/utils';
+import days from '../../data/days';
 
 
 import styles from './rss.module.scss';

@@ -1,11 +1,15 @@
+import days from '../../../../data/days';
+
 import  styles from './weatherBody.module.scss';
 
 const DateTime = ()  => {
-    const currentTime = new Date().toLocaleString();
-    console.log('currentTime', currentTime)
+    const currentDate = new Date();
+    const currentTime = currentDate.toLocaleString();
+
+    const dayOfWeek = (days[currentDate.getDay()]).toUpperCase();
     return (
         <div className = {styles.date_time}>
-            <span>{currentTime}</span>
+            <span>{dayOfWeek}, {currentTime}</span>
         </div>
     )
 }

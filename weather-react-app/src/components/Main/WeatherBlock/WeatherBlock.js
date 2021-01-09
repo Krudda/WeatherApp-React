@@ -3,29 +3,21 @@ import WeatherBlockHeader from './WeatherBlockHeader/WeatherBlockHeader';
 import WeatherBlockBody from './WeatherBlockBody/WeatherBlockBody';
 import WeatherBlockFooter from './WeatherBlockFooter/WeatherBlockFooter';
 import {getWeather} from '../../../redux/actions';
+import { getCountry } from '../../../assets/utils/utils';
 
 import styles from './weather.module.scss';
 
-const WeatherBlock = ({location}) => {
-    
-    const dispatch = useDispatch();
-    dispatch(getWeather(location));
+const WeatherBlock = ({weather, location}) => {
 
-    console.log('location111: ', location)
+    const threeDaysWeather = weather.slice(1,4);
 
     return (
         <div className = {styles.weatherBlock}>
-            <WeatherBlockHeader location = {location}/>
-            <WeatherBlockBody location = {location}/>
-            <WeatherBlockFooter location = {location}/>
+            <WeatherBlockHeader location = {location} />
+            <WeatherBlockBody weather = {weather}/>
+            <WeatherBlockFooter weather = {threeDaysWeather}/>
         </div>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        location: state.userLocation.userLocation
-    }
-}
-
-export default  connect(mapStateToProps, null)(WeatherBlock);
+export default WeatherBlock;
