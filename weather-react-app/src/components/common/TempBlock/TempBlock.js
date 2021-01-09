@@ -17,10 +17,6 @@ const TempBlock = ({temp, temp_dimension, addClass})  => {
     )
 }
 
-TempBlock.propTypes = {
-    temp: PropTypes.number,
-}
-
 TempBlock.defaultProps = {
     addClass: '',
     temp: 0,

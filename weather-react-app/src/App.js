@@ -1,5 +1,5 @@
 import {useDispatch, connect}  from 'react-redux';
-import {getRealUserLocation, setMainBackground} from './redux/actions';
+import {getRealUserLocation, setMainBackground, getWeather} from './redux/actions';
 
 import Header from './components/Header'
 import Main from './components/Main'
@@ -10,7 +10,7 @@ import RSS from './components/RSS'
 import styles from './app.module.scss';
 
 
-function App({image}) {
+function App({image, location}) {
 
   console.log('image', image)
 
@@ -18,8 +18,9 @@ function App({image}) {
   // dispatch(getRealUserLocation());
   // dispatch(setMainBackground());
 
-  const backgroundImage = {
+  dispatch(getWeather(location));
 
+  const backgroundImage = {
     background: `url(${image}) center center / cover no-repeat fixed`
   }
 
@@ -36,7 +37,8 @@ function App({image}) {
 
 const mapStateToProps = state => {
   return {
-      image: state.backgroundImage.mainBackgroundImage
+      image: state.backgroundImage.mainBackgroundImage,
+      location: state.userLocation.userLocation,
   }
 }
 

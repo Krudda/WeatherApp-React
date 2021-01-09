@@ -5,7 +5,7 @@ import styles from './weatherFooter.module.scss'
 const WeatherBlockFooter = ({weather}) => {
 
     const forecastThreeDays  = weather.map(forecast => {
-        return  <DayForecast forecast = {forecast}/>
+        return  <DayForecast key = {forecast.sunrise_ts} forecast = {forecast}/>
     })
 
     return (

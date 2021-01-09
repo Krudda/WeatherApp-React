@@ -11,6 +11,7 @@ const Main = ({location, weather}) => {
     // const dispatch = useDispatch();
     // dispatch(getWeather(location));
 
+    
     return (
         <div className = {style.main}>
             {location && weather &&

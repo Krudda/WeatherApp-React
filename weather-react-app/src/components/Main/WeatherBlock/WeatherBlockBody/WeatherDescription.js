@@ -6,8 +6,6 @@ import  styles from './weatherBody.module.scss';
 
 const WeatherDescription = ({weather})  => {
 
-    console.log('weather!!!!!!', weather)
-
     const image = {
         id_icon:  weather.weather.icon,
         description: weather.weather.description

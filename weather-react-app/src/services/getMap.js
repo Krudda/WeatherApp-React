@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 const getMap = (lon, lat) => {
 
-  console.log('lat: ', lat, 'lon:', lon);
   ymaps.ready(init);
   
   function init() {

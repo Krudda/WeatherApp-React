@@ -6,8 +6,8 @@ import WeatherDescription from './WeatherDescription';
 import  styles from './weatherBody.module.scss';
 
 const WeatherBlockBody = ({weather}) => {
-    const current = weather ? weather[0] : 'lala';
-    const temp = Math.round(current.high_temp) || '--';
+    const current = weather[0];
+    const temp = Math.round(current.high_temp);
 
     return (
         <div className = {styles.body}>
