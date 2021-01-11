@@ -12,8 +12,10 @@ const RSS = ({forecast}) => {
         content = forecast.map(day => {
             const date = new Date(day.valid_date);
             const dayOfWeek  = days[date.getDay()];
-            const temp = Math.round(day.app_max_temp);
-            const signTemp = temp > 0 ? `+${temp}` : temp;
+            const tempHigh = Math.round(day.high_temp);
+            const tempLow = Math.round(day.low_temp);
+            const signTempHigh = tempHigh > 0 ? `+${tempHigh}` : tempHigh;
+            const signTempLow = tempLow > 0 ? `+${tempLow}` : tempLow;
             const weatherDesc = day.weather.description;
             const humidity = day.rh;
             const wind = `${day.wind_cdir_full}, ${Math.round(day.wind_spd)}`;
@@ -23,7 +25,8 @@ const RSS = ({forecast}) => {
                 key = {day.valid_date}
                 date = {day.valid_date}
                 dayOfWeek = {dayOfWeek}
-                temp = {signTemp}
+                tempHigh = {signTempHigh}
+                tempLow = {signTempLow}
                 weatherDesc = {weatherDesc}
                 humidity = {humidity}
                 wind = {wind}

@@ -4,7 +4,6 @@ import getMainBackground from '../services/getMainBackground';
 import getCurrentWeather from '../services/getWeather';
 
 export function setSearchLocation(location) {
-    console.log("action")
     return {
         type: SET_SEARCH_LOCATION, 
         payload: {location}

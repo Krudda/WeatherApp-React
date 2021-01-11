@@ -27,10 +27,7 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "Caching": {
-      "cache": false
-    }
+    ]
   },
   "browserslist": {
     "production": [

@@ -3,17 +3,18 @@ import styles from './rss.module.scss';
 const RSSDayForecast = (props) => {
     const {date, 
         dayOfWeek, 
-        temp, 
+        tempHigh,
+        tempLow, 
         weatherDesc,
         humidity,
         wind } = props;
     return (
-        <>
+        <div>
             <p className = {styles.rss_date}>
                 {dayOfWeek},  {date}:
             </p>
             <p>
-                <span className = {styles.rss_temp}>{temp}°</span>
+                <span className = {styles.rss_temp}>{tempHigh}°/ {tempLow}°</span>
             </p>
             <p>
                 {weatherDesc}
@@ -24,7 +25,7 @@ const RSSDayForecast = (props) => {
             <p>
                 Wind: {wind}m/s
             </p>
-        </>
+        </div>
     )
 }
 

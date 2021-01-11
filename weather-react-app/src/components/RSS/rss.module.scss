@@ -16,6 +16,7 @@
     }
 
     .rss { 
+        display: flex;
         white-space: nowrap;
         animation: animation 80s linear infinite;
         @keyframes animation {
