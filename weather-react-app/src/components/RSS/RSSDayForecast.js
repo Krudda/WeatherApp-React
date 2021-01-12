@@ -14,7 +14,7 @@ const RSSDayForecast = (props) => {
                 {dayOfWeek},  {date}:
             </p>
             <p>
-                <span className = {styles.rss_temp}>{tempHigh}°/ {tempLow}°</span>
+                <span className = {styles.rss_temp}>{tempHigh}°/{tempLow}°</span>
             </p>
             <p>
                 {weatherDesc}
