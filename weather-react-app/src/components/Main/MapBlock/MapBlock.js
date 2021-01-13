@@ -1,10 +1,14 @@
-import {connect}  from 'react-redux';
+import {useSelector}  from 'react-redux';
 import getMap from '../../../services/getMap';
 import Geolocation from './Geolocation';
 
 import styles from './mapBlock.module.scss';
 
-const MapBlock = ({location, lon, lat}) => {
+const MapBlock = () => {
+
+    const location = useSelector(state => state.userLocation.userLocation);
+    const lon = useSelector(state => state.weather.weather.lon);
+    const lat = useSelector(state => state.weather.weather.lat);
 
     console.log('Map Location: ', location);
     getMap(lon, lat);
@@ -20,12 +24,5 @@ const MapBlock = ({location, lon, lat}) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        location: state.userLocation.userLocation,
-        lon: state.weather.weather.lon,
-        lat: state.weather.weather.lat,
-    }
-}
 
-export default  connect(mapStateToProps, null)(MapBlock);
+export default  MapBlock;

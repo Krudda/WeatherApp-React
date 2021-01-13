@@ -1,4 +1,3 @@
-import {connect, useDispatch}  from 'react-redux';
 import WeatherBlockHeader from './WeatherBlockHeader/WeatherBlockHeader';
 import WeatherBlockBody from './WeatherBlockBody/WeatherBlockBody';
 import WeatherBlockFooter from './WeatherBlockFooter/WeatherBlockFooter';

@@ -1,4 +1,4 @@
-import {connect, useDispatch}  from 'react-redux';
+import {useSelector, useDispatch}  from 'react-redux';
 
 import MapBlock from './MapBlock/MapBlock';
 import WeatherBlock from './WeatherBlock/WeatherBlock';
@@ -6,7 +6,10 @@ import {getWeather} from '../../redux/actions';
 
 import style from './main.module.scss';
 
-const Main = ({location, weather}) => {
+const Main = () => {
+
+    const weather = useSelector(state => state.weather.weather.data);
+    const location = useSelector(state => state.userLocation.userLocation);
 
     // const dispatch = useDispatch();
     // dispatch(getWeather(location));
@@ -23,11 +26,5 @@ const Main = ({location, weather}) => {
         </div>
     )
 }
-const mapStateToProps = state => {
-    return {
-        location: state.userLocation.userLocation,
-        weather: state.weather.weather.data
-    }
-}
 
-export default  connect(mapStateToProps, null)(Main);
+export default  Main;

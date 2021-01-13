@@ -1,11 +1,13 @@
-import  {connect} from 'react-redux';
+import  {useSelector} from 'react-redux';
 import RSSDayForecast from './RSSDayForecast';
 import days from '../../data/days';
 
 
 import styles from './rss.module.scss';
 
-const RSS = ({forecast}) => {
+const RSS = () => {
+
+    const forecast = useSelector(state => state.weather.weather.data);
 
     let content = '';
     if (forecast) {
@@ -42,10 +44,5 @@ const RSS = ({forecast}) => {
         </div>
     )
 }
-const mapStateToProps = state => {
-    return {
-        forecast: state.weather.weather.data
-    }
-}
 
-export default  connect(mapStateToProps, null)(RSS);
+export default  RSS;

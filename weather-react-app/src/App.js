@@ -1,4 +1,4 @@
-import {useDispatch, connect}  from 'react-redux';
+import {useDispatch, useSelector}  from 'react-redux';
 import {getRealUserLocation, setMainBackground, getWeather} from './redux/actions';
 
 import Header from './components/Header'
@@ -10,7 +10,10 @@ import RSS from './components/RSS'
 import styles from './app.module.scss';
 
 
-function App({image, location}) {
+function App() {
+
+  const image = useSelector(state => state.backgroundImage.mainBackgroundImage);
+  const location = useSelector(state => state.userLocation.userLocation);
 
   console.log('image', image)
 
@@ -35,11 +38,4 @@ function App({image, location}) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-      image: state.backgroundImage.mainBackgroundImage,
-      location: state.userLocation.userLocation,
-  }
-}
-
-export default connect(mapStateToProps, null)(App);
+export default App;

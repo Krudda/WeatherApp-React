@@ -1,4 +1,3 @@
-import {connect, useSelector, useStore}  from 'react-redux';
 import Button from '../../common/Button/Button';
 import speakerHandler from '../../../services/speakerHandler';
 import styles from './settingsBlock.module.scss';
