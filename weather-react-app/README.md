@@ -8,3 +8,4 @@ API:
     - Yandex.Map
     - Ipinfo
     - Weatherbit
+Web Speech API  (SpeechSynthesis)

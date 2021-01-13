@@ -1,21 +1,23 @@
+import {connect, useSelector, useStore}  from 'react-redux';
 import Button from '../../common/Button/Button';
+import speakerHandler from '../../../services/speakerHandler';
 import styles from './settingsBlock.module.scss';
 
-const buttonBackgroundHandler = () => {
-    
-}
-const buttonSetFHandler = () => {
-
-}
-const buttonSetCHandler = () => {
-
-}
-const buttonSpeakerHandler = () => {
-    alert('Speaker pushed')
-}
-
-
 const SettingsBlock = () => {
+
+
+    const buttonBackgroundHandler = () => {
+    
+    }
+    const buttonSetFHandler = () => {
+    
+    }
+    const buttonSpeakerHandler = () => {
+        speakerHandler();
+    }
+    const buttonSetCHandler = () => {
+    
+    }
     return (
         <div className = {styles.block}>
             <Button add_class = 'button-update' handler = {buttonBackgroundHandler}/>
