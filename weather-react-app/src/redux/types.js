@@ -5,3 +5,5 @@ export const SET_MAIN_BACKGROUND = 'SET_MAIN_BACKGROUND';
 export const GET_WEATHER = 'GET_WEATHER';
 export const SHOW_LOADER = 'SHOW_LOADER';
 export const HIDE_LOADER = 'HIDE_LOADER';
+export const DISABLE_BUTTON = 'DISABLE_BUTTON';
+export const ENABLE_BUTTON = 'ENABLE_BUTTON';

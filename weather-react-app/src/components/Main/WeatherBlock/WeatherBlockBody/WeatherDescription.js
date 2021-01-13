@@ -26,7 +26,7 @@ const WeatherDescription = ({weather})  => {
                 <WeatherDesc desc = 'FEELS LIKE' value = {fellsLike} dimension = ' °'/>
                 <WeatherDesc desc = 'WIND' value = {windSpd} dimension = 'm/c'/>
                 <WeatherDesc desc = 'HUMIDITY' value = {hum} dimension = ' %'/>
-                <WeatherDesc desc = 'PRESSURE' value = {press} dimension = 'mm Hg'/>
+                <WeatherDesc desc = 'PRESSURE' value = {press} dimension = ' mm Hg'/>
             </div>
         </div>
     )

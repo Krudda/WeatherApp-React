@@ -4,9 +4,14 @@ import classNames from 'classnames';
 import styles from './button.module.scss';
 
 const Button = ({
-    children, type_view , add_class, handler, active, disabled, ...attrs
+    children,
+    type_view, 
+    add_class, 
+    handler, 
+    active, 
+    disabled, 
+    ...attrs
 }) => {
-
 
     const classes = classNames(
         styles.button, 
