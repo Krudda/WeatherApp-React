@@ -27,7 +27,6 @@ const speakerHandler = () => {
             setTimeout(speak, 300);
         } else if (weather) {
             const utterThis = new SpeechSynthesisUtterance(phrase);
-
             utterThis.voice = voices.find(voice => voice.lang === 'en-US');
             utterThis.onerror = function (event) {
 

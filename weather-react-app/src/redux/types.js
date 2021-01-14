@@ -7,3 +7,4 @@ export const SHOW_LOADER = 'SHOW_LOADER';
 export const HIDE_LOADER = 'HIDE_LOADER';
 export const DISABLE_BUTTON = 'DISABLE_BUTTON';
 export const ENABLE_BUTTON = 'ENABLE_BUTTON';
+export const SET_TEMP_DIMENSION = 'SET_TEMP_DIMENSION';

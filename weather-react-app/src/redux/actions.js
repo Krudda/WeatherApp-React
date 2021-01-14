@@ -4,7 +4,8 @@ import {
     GET_WEATHER, 
     SET_SEARCH_LOCATION, 
     ENABLE_BUTTON, 
-    DISABLE_BUTTON} from './types';
+    DISABLE_BUTTON,
+    SET_TEMP_DIMENSION} from './types';
 import getUserLocation from '../services/getUserLocation';
 import getMainBackground from '../services/getMainBackground';
 import getCurrentWeather from '../services/getWeather';
@@ -53,5 +54,12 @@ export function enableButton() {
 export function disableButton() {
     return {
         type: DISABLE_BUTTON
+    }
+}
+
+export function setTempDimension(dimension) {
+    return {
+        type: SET_TEMP_DIMENSION, 
+        payload: dimension
     }
 }

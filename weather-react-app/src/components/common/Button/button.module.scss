@@ -33,6 +33,11 @@
 .active {
     color: $button-active-color;
     background-color: $button-active-background;
+    cursor: default;
+    &:hover {
+        color: $button-active-color;
+        background-color: $button-active-background !important;
+    }
 }
 .disabled {
     cursor: default;

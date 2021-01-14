@@ -21,11 +21,13 @@ const Button = ({
         add_class !== '' ? styles[add_class] : false,
     )
 
+    const needHandler = !active ? handler : null;
+
     return (
         <button 
             {...attrs}
             className={classes}
-            onClick = {handler}
+            onClick = {needHandler}
         >
             {children}
         </button>
