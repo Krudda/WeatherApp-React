@@ -1,7 +1,8 @@
 import {GET_USER_LOCATION, SET_SEARCH_LOCATION} from './types';
 
 const initialState = {
-    userLocation : {city: 'Phuket', country: 'TH'},
+    userLocation : {city: 'Nizhniy Novgorod', country: 'RU'},
+    // userLocation : {city: 'Phuket', country: 'TH'},
     searchLocation : {city: 'Nizhniy Novgorod', country: 'RU'},
 }
 
