@@ -5,7 +5,7 @@ import WeatherDescription from './WeatherDescription';
 
 import  styles from './weatherBody.module.scss';
 
-const WeatherBlockBody = ({weather}) => {
+const WeatherBlockBody = ({weather, tempDimension}) => {
     const current = weather[0];
     const temp = Math.round(current.high_temp);
 
@@ -13,9 +13,9 @@ const WeatherBlockBody = ({weather}) => {
         <div className = {styles.body}>
             <div className = {styles.date_temp}>
                 <DateTime/>
-                <TempBlock temp = {temp} temp_dimension = 'c'/>
+                <TempBlock temp = {temp} tempDimension = {tempDimension}/>
             </div>
-            <WeatherDescription weather = {current}/>
+            <WeatherDescription weather = {current} tempDimension = {tempDimension}/>
         </div>
     )
 }

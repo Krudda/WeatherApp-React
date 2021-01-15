@@ -9,6 +9,7 @@ import style from './main.module.scss';
 const Main = () => {
 
     const weather = useSelector(state => state.weather.weather.data);
+    const tempDimension = useSelector(state => state.tempDimension.tempDimension);
     const location = useSelector(state => state.userLocation.userLocation);
 
     // const dispatch = useDispatch();
@@ -19,7 +20,11 @@ const Main = () => {
         <div className = {style.main}>
             {location && weather &&
             <>
-                <WeatherBlock weather = {weather}  location = {location}/>
+                <WeatherBlock 
+                    weather = {weather}  
+                    location = {location} 
+                    tempDimension = {tempDimension}
+                />
                 <MapBlock location = {location}/>
             </>
             }

@@ -32,9 +32,9 @@ export function setMainBackground() {
     }
 }
 
-export function getWeather(location) {
+export function getWeather(location, tempDimension) {
     return async dispatch => {
-        const weather = await getCurrentWeather(location);
+        const weather = await getCurrentWeather(location, tempDimension);
         console.log('weather: ', weather);
         dispatch({type: GET_WEATHER, payload: weather})
     }

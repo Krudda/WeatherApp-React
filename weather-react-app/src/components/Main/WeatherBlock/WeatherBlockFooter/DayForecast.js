@@ -5,7 +5,7 @@ import days from '../../../../data/days'
 
 import styles from './weatherFooter.module.scss'
 
-const DayForecast = ({forecast}) => {
+const DayForecast = ({forecast, tempDimension}) => {
 
     const temp = Math.round(forecast.high_temp) || '--'
     const image = {
@@ -20,7 +20,7 @@ const DayForecast = ({forecast}) => {
         <div className = {styles.day}>
             <div className = {styles.day_week}>{dayOfWeek}</div>
             <div className = {styles.day_forecast}>
-                <TempBlock temp = {temp} temp_dimension = 'c' addClass = 'day'/>
+                <TempBlock temp = {temp} tempDimension = {tempDimension} addClass = 'day'/>
                 <div className = {styles.day_cloud}>
                     {forecast && <WeatherImage image = {image} addClass = 'day'/>}
                 </div>

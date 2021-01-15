@@ -14,14 +14,13 @@ function App() {
 
   const image = useSelector(state => state.backgroundImage.mainBackgroundImage);
   const location = useSelector(state => state.userLocation.userLocation);
-
-  console.log('image', image)
+  const tempDimension = useSelector(state => state.tempDimension.tempDimension);
 
   const dispatch = useDispatch();
   // dispatch(getRealUserLocation());
   // dispatch(setMainBackground());
 
-  dispatch(getWeather(location));
+  dispatch(getWeather(location, tempDimension));
 
   const backgroundImage = {
     background: `url(${image}) center center / cover no-repeat fixed`

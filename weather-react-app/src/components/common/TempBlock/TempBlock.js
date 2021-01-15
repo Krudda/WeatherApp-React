@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import  styles from './tempBlock.module.scss';
 
-const TempBlock = ({temp, temp_dimension, addClass})  => {
+const TempBlock = ({temp, tempDimension, addClass})  => {
 
     const forecast = addClass? `${addClass}_` : '';
 
@@ -11,7 +11,7 @@ const TempBlock = ({temp, temp_dimension, addClass})  => {
             <span className = {styles.temp_data}>{temp}</span>
             <div className = {styles.temp_dimension}>
                 <span className = {styles[`${forecast}degree`]}>°</span>
-                <span className = {styles[`${forecast}degree_dimension`]}>{temp_dimension}</span>
+                <span className = {styles[`${forecast}degree_dimension`]}>{tempDimension}</span>
             </div>
         </div>
     )
@@ -20,6 +20,6 @@ const TempBlock = ({temp, temp_dimension, addClass})  => {
 TempBlock.defaultProps = {
     addClass: '',
     temp: 0,
-    temp_dimension: 'c'
+    // tempDimension: 'c'
 }
 export default TempBlock;
