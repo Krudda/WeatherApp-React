@@ -1,8 +1,11 @@
+import store from '../redux/store';
+
 import { keys } from '../data/apiKeys';
 
-// let currentDimension = localStorage.getItem('currentDimension') || 'c';
-// const weatherUnit = currentDimension === 'c' ? 'M' : 'I';
-const weatherUnit =  'M'; 
+const state = store.getState();
+const currentDimension = state.tempDimension.tempDimension;
+const weatherUnit = currentDimension === 'f' ? 'I' : 'M';
+
 const key = keys.weather3KEY;
 
 async function getCurrentWeather(location) {

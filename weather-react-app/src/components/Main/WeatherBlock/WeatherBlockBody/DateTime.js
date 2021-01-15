@@ -1,15 +1,14 @@
-import days from '../../../../data/days';
+import {useSelector} from 'react-redux';
+import LocalTime from './LocalTime';
 
 import  styles from './weatherBody.module.scss';
 
 const DateTime = ()  => {
-    const currentDate = new Date();
-    const currentTime = currentDate.toLocaleString();
+    const timeZone = useSelector(state => state.weather.weather.timezone);
 
-    const dayOfWeek = (days[currentDate.getDay()]).toUpperCase();
     return (
         <div className = {styles.date_time}>
-            <span>{dayOfWeek}, {currentTime}</span>
+            <LocalTime timeZone = {timeZone}/>
         </div>
     )
 }
