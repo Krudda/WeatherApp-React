@@ -1,12 +1,12 @@
 @import '../../../assets/scss/_constants';
 .block {
-    width: 400px;
-    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 .map_area {
+    height: 400px;
+    background-color: rgba(0,0,0,.5);
     -webkit-mask-size: cover;
     mask-image: url('../../../assets/images/mapMask.png');
 }
