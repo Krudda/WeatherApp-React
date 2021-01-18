@@ -16,10 +16,10 @@ import getCurrentWeather from '../services/getWeather';
 import speakerHandler from '../services/speakerHandler';
 import getMap from '../services/getMap'
 
-export function setSearchLocation(location) {
+export function setSearchLocation(city) {
     return {
         type: SET_SEARCH_LOCATION, 
-        payload: {location}
+        payload: {city}
     }
 }
 
@@ -49,7 +49,6 @@ export function getWeather(location, tempDimension) {
 export function tellWeather() {
     return async function() {
         await speakerHandler();
-        // dispatch({type: GET_WEATHER, payload: weather})
     }
 }
 

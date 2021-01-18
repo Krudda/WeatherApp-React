@@ -9,6 +9,8 @@ import Spinner from '../../common/Spinner';
 
 const WeatherBlock = ({weather, location, tempDimension}) => {
 
+    console.log('weather WeatherBlock', weather)
+
     const loading = useSelector(state => state.loading.loading);
     const threeDaysWeather = weather.slice(1,4);
 

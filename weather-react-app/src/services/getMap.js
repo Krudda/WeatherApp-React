@@ -1,18 +1,20 @@
 /* eslint-disable no-undef */
 const getMap = (lon, lat) => {
+  console.log('Рисую карту!!!')
 
   ymaps.ready(init);
   
   function init() {
     if (lat) {
-      const myMap = new ymaps.Map('map', {
+      const weatherMap = new ymaps.Map('map', {
         center: [lat, lon],
         zoom: 10,
+        controls: ['zoomControl', 'typeSelector', 'fullscreenControl']
       }, {
         searchControlProvider: 'yandex#search',
       });
     
-      myMap.geoObjects
+      weatherMap.geoObjects
         .add(new ymaps.Placemark([lat, lon], {}, {
           preset: 'islands#redIcon',
         }));

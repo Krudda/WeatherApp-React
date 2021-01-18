@@ -9,31 +9,29 @@ import style from './main.module.scss';
 
 
 const Main = () => {
-
-    // const state = store.getState();
-    // const weather = state.weather.weather.data;
-    // const tempDimension = state.tempDimension.tempDimension;
-    // const location = state.userLocation.userLocation;
-
-    const weather = useSelector(state => state.weather.weather.data);
-    // const city = useSelector(state => state.weather.weather.city_name);
+    const weatherData = useSelector(state => state.weather.weather);
+    const weather = weatherData.data;
     const tempDimension = useSelector(state => state.tempDimension.tempDimension);
-    const location = useSelector(state => state.userLocation.userLocation);
+    const userLocation = useSelector(state => state.location.userLocation);
+    // const searchLocation = useSelector(state => state.location.searchLocation);
 
-    // const dispatch = useDispatch();
-    // dispatch(getWeather(location));
+    const location = {
+        city: weatherData.city_name,
+        country: weatherData.country_code
+    }
 
-    // const dispatch = useDispatch();  
-    // dispatch(getWeather(location, tempDimension));
+    const weatherLocation = location ? location : userLocation;
 
-    
+    console.log('weatherLocation Main', weatherLocation)
+    console.log('weather', weather)
+
     return (
         <div className = {style.main}>
-            {location && weather &&
+            {weatherLocation && weather &&
                 <>
                     <WeatherBlock 
                         weather = {weather}  
-                        location = {location} 
+                        location = {weatherLocation} 
                         tempDimension = {tempDimension}
                     />
                     <MapBlock />

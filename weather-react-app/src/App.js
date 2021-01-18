@@ -14,8 +14,8 @@ import styles from './app.module.scss';
 function App() {
 
   const image = useSelector(state => state.backgroundImage.mainBackgroundImage);
-  const userLocation = useSelector(state => state.userLocation.userLocation);
-  // const searchLocation = useSelector(state => state.searchLocation.searchLocation);
+  const userLocation = useSelector(state => state.location.userLocation);
+  const searchLocation = useSelector(state => state.location.searchLocation);
   // console.log('searchLocation', searchLocation === true);
   const tempDimension = useSelector(state => state.tempDimension.tempDimension);
 
@@ -23,10 +23,11 @@ function App() {
   // dispatch(getRealUserLocation());
   // dispatch(setMainBackground());
 
+  const weatherLocation = searchLocation.city !=='' ? searchLocation : userLocation;
 
   useEffect(() => {
-    dispatch(getWeather(userLocation, tempDimension));
-  }, [userLocation, tempDimension]);
+    dispatch(getWeather(weatherLocation, tempDimension));
+  }, [dispatch, weatherLocation, tempDimension]);
 
   const backgroundImage = {
     background: `url(${image}) center center / cover no-repeat fixed`
