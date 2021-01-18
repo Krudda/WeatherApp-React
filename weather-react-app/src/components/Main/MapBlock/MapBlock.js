@@ -1,19 +1,15 @@
-import { useDispatch, connect, useSelector }  from 'react-redux';
+import { useSelector }  from 'react-redux';
 import getMap from '../../../services/getMap';
 import Geolocation from './Geolocation';
 import Spinner from '../../common/Spinner'
 
 import styles from './mapBlock.module.scss';
-import { showMap } from '../../../redux/actions';
 
-const MapBlock = ({lon, lat, loading}) => {
+const MapBlock = () => {
+    const lon = useSelector(state => state.weather.weather.lon);
+    const lat = useSelector(state => state.weather.weather.lat);
+    const loading = useSelector(state => state.loading.loading);
 
-    // const location = useSelector(state => state.userLocation.userLocation);
-    // const lon = useSelector(state => state.weather.weather.lon);
-    // const lat = useSelector(state => state.weather.weather.lat);
-    // const loading = useSelector(state => state.loading.loading);
-
-    // console.log('Map Location: ', location);
     getMap(lon, lat);
 
     return (
@@ -28,13 +24,4 @@ const MapBlock = ({lon, lat, loading}) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        lon: state.weather.weather.lon,
-        lat: state.weather.weather.lat,
-        loading: state.loading.loading
-    }
-}
-
-
-export default  connect(mapStateToProps)(MapBlock);
+export default  MapBlock;
