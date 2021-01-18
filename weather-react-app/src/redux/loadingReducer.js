@@ -1,7 +1,7 @@
 import { SHOW_SPINNER, HIDE_SPINNER } from './types';
 
 const initialState = {
-    loading: false
+    loading: true
 }
 
 export const  loadingReducer = (state = initialState, action) => {

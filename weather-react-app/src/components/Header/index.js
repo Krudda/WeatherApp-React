@@ -7,7 +7,8 @@ import style from './header.module.scss';
 const Header = () => {
 
     const searchHandler = (e) => {
-        console.log('handler')
+        alert('searchHandler');
+        console.log('value: ', e);
         e.preventDefault();
     }
     const submitForm = (e) => {

@@ -41,13 +41,11 @@ export function getWeather(location, tempDimension) {
     return async dispatch => {
         dispatch(showSpinner());
         const weather = await getCurrentWeather(location, tempDimension);
-        console.log('weather: ', weather);
         dispatch({type: GET_WEATHER, payload: weather});
         dispatch(hideSpinner());
     }
 }
 
-// s
 export function tellWeather() {
     return async function() {
         await speakerHandler();

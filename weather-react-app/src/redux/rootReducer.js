@@ -9,7 +9,7 @@ export const rootReducer = combineReducers({
     userLocation: userLocationReducer,
     backgroundImage: backgroundReducer,
     weather: weatherReducer,
-    searchLocation: searchLocationReducer,
+    // searchLocation: searchLocationReducer,
     tempDimension: setTempDimensionReducer,
     loading: loadingReducer
 })
