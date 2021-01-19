@@ -7,7 +7,7 @@ import styles from './weatherFooter.module.scss'
 
 const DayForecast = ({forecast, tempDimension}) => {
 
-    const temp = Math.round(forecast.high_temp) || '--'
+    const temp = Math.round(forecast.high_temp).toString() || '--'
     const image = {
         id_icon:  forecast.weather.icon,
         description: forecast.weather.description

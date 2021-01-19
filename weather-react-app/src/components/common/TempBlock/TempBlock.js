@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types';
-
 import  styles from './tempBlock.module.scss';
 
 const TempBlock = ({temp, tempDimension, addClass})  => {
 
-    const forecast = addClass? `${addClass}_` : '';
+    const forecast = addClass ? `${addClass}_` : '';
 
     return (
         <div className = {styles[`${forecast}temp`]}>
@@ -20,6 +18,5 @@ const TempBlock = ({temp, tempDimension, addClass})  => {
 TempBlock.defaultProps = {
     addClass: '',
     temp: 0,
-    // tempDimension: 'c'
 }
 export default TempBlock;

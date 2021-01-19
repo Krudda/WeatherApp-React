@@ -10,21 +10,13 @@ const RSSDayForecast = (props) => {
         wind } = props;
     return (
         <div>
-            <p className = {styles.rss_date}>
-                {dayOfWeek},  {date}:
-            </p>
+            <p className = {styles.rss_date}>{dayOfWeek},  {date}:</p>
             <p>
                 <span className = {styles.rss_temp}>{tempHigh}°/{tempLow}°</span>
             </p>
-            <p>
-                {weatherDesc}
-            </p>
-            <p>
-                Humidity: {humidity}%
-            </p>
-            <p>
-                Wind: {wind}m/s
-            </p>
+            <p>{weatherDesc}</p>
+            <p>Humidity: {humidity}%</p>
+            <p>Wind: {wind}m/s</p>
         </div>
     )
 }

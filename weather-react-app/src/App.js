@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { getWeather } from './redux/actions';
 
 import Header from './components/Header'
-import Main from './components/Main'
+import Main from './components/Main/index'
 import RSS from './components/RSS'
 
 // import getMainBackground from './services/getMainBackground'
@@ -16,7 +16,6 @@ function App() {
   const image = useSelector(state => state.backgroundImage.mainBackgroundImage);
   const userLocation = useSelector(state => state.location.userLocation);
   const searchLocation = useSelector(state => state.location.searchLocation);
-  // console.log('searchLocation', searchLocation === true);
   const tempDimension = useSelector(state => state.tempDimension.tempDimension);
 
   const dispatch = useDispatch();

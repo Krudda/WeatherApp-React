@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 const getMap = (lon, lat) => {
-  console.log('Рисую карту!!!')
 
   ymaps.ready(init);
   
