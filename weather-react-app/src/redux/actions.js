@@ -47,8 +47,8 @@ export function getWeather(location, tempDimension) {
 }
 
 export function tellWeather() {
-    return async function() {
-        await speakerHandler();
+    return  function() {
+        speakerHandler();
     }
 }
 
