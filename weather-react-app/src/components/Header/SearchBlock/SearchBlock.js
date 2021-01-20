@@ -2,16 +2,48 @@ import { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import {setSearchLocation} from '../../../redux/actions';
 import Button from '../../common/Button/Button';
+import Mic from './Mic';
+
 import styles from './searchBlock.module.scss';
 
 
-const SearchBlock = ({}) => {
+const SearchBlock = () => {
     const [searchCity, setSearchCity] = useState('');
+    const [micActive, setMicActive] = useState(false);
 
     const dispatch = useDispatch();
 
     const inputHandler = (e) => {
         setSearchCity(e.target.value.toUpperCase());
+    }
+
+    const focusHandler = () => {
+        setSearchCity('');
+    }
+
+    const voiceHandler  = () => {
+        setMicActive (true);
+
+        const SpeechRecognition = new (
+        window.SpeechRecognition
+        || window.webkitSpeechRecognition 
+        || window.mozSpeechRecognition 
+        || window.msSpeechRecognition
+        )()
+
+        SpeechRecognition.lang = "en-EN";
+        SpeechRecognition.onresult = function (event) {
+            const voiceCity = event.results[0][0].transcript;
+            setSearchCity(voiceCity)
+            dispatch(setSearchLocation(voiceCity));
+        }
+
+        SpeechRecognition.onspeechend = function() {
+            SpeechRecognition.stop();
+            setMicActive (false);
+        };
+          
+        SpeechRecognition.start();
     }
 
     const submitHandler  = (e) =>{
@@ -32,6 +64,7 @@ const SearchBlock = ({}) => {
                     placeholder = 'search city'
                     onInput = {inputHandler}
                     value = {searchCity}
+                    onFocus = {focusHandler}
                 />
                 <Button 
                     type_view = 'type_0110'  
@@ -41,7 +74,10 @@ const SearchBlock = ({}) => {
                     >
                         search
                     </Button>
-                <div className = {styles.button_mic}></div>
+                <Mic 
+                    active = {micActive}
+                    handler = {voiceHandler}
+                />
             </form>
         </div>
     )

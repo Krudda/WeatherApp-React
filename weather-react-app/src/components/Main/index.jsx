@@ -2,8 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import MapBlock from './MapBlock/MapBlock.jsx';
 import WeatherBlock from './WeatherBlock/WeatherBlock.jsx';
-import { getWeather } from '../../redux/actions';
-import store from '../../redux/store';
 
 import style from './main.module.scss';
 
@@ -14,12 +12,16 @@ const Main = () => {
     const tempDimension = useSelector(state => state.tempDimension.tempDimension);
     const userLocation = useSelector(state => state.location.userLocation);
 
+    // console.log("Я Main,  погоду передаю ", weather);
+
     const location = {
         city: weatherData.city_name,
         country: weatherData.country_code
     }
 
     const weatherLocation = location ? location : userLocation;
+
+    console.log('Я Main, location = ', weatherLocation)
 
     return (
         <div className={style.main}>

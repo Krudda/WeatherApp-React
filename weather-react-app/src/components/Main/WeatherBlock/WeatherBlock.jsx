@@ -9,11 +9,13 @@ import Spinner from '../../common/Spinner';
 
 const WeatherBlock = ({ weather, location, tempDimension }) => {
 
-    console.log('Рисую WeatherBlock')
+    // console.log('Рисую WeatherBlock, weather = ', weather)
+    // console.log('Рисую WeatherBlock, location = ', location)
 
     const loading = useSelector(state => state.loading.loading);
     const threeDaysWeather = weather.slice(1, 4);
 
+    loading ? console.log('Рисую Spinner') : console.log('Рисую WeatherBlock, location = ', location);
 
     return (
         <div className={styles.weatherBlock}>

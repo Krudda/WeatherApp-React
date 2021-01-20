@@ -80,6 +80,9 @@
         background-size: 100%;
         outline: none;
         cursor: pointer;
+        &.active {
+            background-image: url('/assets/images/mic-active.png');
+        }
     }
     }
 }

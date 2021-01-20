@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import getMap from '../../../services/getMap';
 import Geolocation from './Geolocation';
 import Spinner from '../../common/Spinner'
 import Map from './Map';

@@ -14,7 +14,6 @@ import getUserLocation from '../services/getUserLocation';
 import getMainBackground from '../services/getMainBackground';
 import getCurrentWeather from '../services/getWeather';
 import speakerHandler from '../services/speakerHandler';
-import getMap from '../services/getMap'
 
 export function setSearchLocation(city) {
     return {
@@ -40,6 +39,8 @@ export function setMainBackground() {
 export function getWeather(location, tempDimension) {
     return async dispatch => {
         dispatch(showSpinner());
+        // const userLocation = await getUserLocation();
+        // dispatch({type: GET_USER_LOCATION, payload: userLocation})
         const weather = await getCurrentWeather(location, tempDimension);
         dispatch({type: GET_WEATHER, payload: weather});
         dispatch(hideSpinner());

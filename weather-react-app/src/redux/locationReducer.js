@@ -2,6 +2,7 @@ import {GET_USER_LOCATION, SET_SEARCH_LOCATION} from './types';
 
 const initialState = {
     // userLocation : {city: 'Nizhniy Novgorod', country: 'RU'},
+    // userLocation : {city: '', country: ''},
     userLocation : {city: 'Phuket', country: 'TH'},
     searchLocation : {city: ''}
 }
@@ -9,6 +10,7 @@ const initialState = {
 export const locationReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_USER_LOCATION: 
+            console.log('GET_USER_LOCATION !!!')
             return {...state, userLocation: action.payload}
         case SET_SEARCH_LOCATION: 
             return {...state, searchLocation: action.payload}
