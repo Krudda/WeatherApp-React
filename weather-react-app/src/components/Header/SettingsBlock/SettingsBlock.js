@@ -1,5 +1,5 @@
-import {useDispatch, useSelector} from 'react-redux';
-
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../common/Button/Button';
 import speakerHandler from '../../../services/speakerHandler';
 import {setTempDimension} from '../../../redux/actions';
@@ -11,6 +11,7 @@ const SettingsBlock = () => {
     const  currentDimension = useSelector(state => state.tempDimension.tempDimension);
     const isActiveC = currentDimension === 'c' ? 'active': null;
     const isActiveF = currentDimension === 'f' ? 'active': null;
+    const [speakerActive, setSpeakerActive] = useState(false);
 
     const buttonBackgroundHandler = () => {
     
@@ -22,19 +23,20 @@ const SettingsBlock = () => {
         dispatch(setTempDimension('c'));
     }
     const buttonSpeakerHandler = () => {
-        speakerHandler();
+        setSpeakerActive(true);
+        speakerHandler(setSpeakerActive);
     }
 
     return (
         <div className = {styles.block}>
             <Button add_class = 'button-update' handler = {buttonBackgroundHandler}/>
-            <Button type_view = 'type_1001' add_class = {isActiveF}handler = {buttonSetFHandler}>
+            <Button type_view = 'type_1001' add_class = {isActiveF} handler = {buttonSetFHandler}>
                 °F
             </Button>
             <Button type_view = 'type_0110' add_class = {isActiveC} handler = {buttonSetCHandler}>
                 °C
             </Button>
-            <Button add_class = 'speaker' handler = {buttonSpeakerHandler}/>
+            <Button add_class = 'speaker' active= {speakerActive} handler = {buttonSpeakerHandler}/>
         </div>
     )
 }
