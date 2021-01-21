@@ -21,8 +21,6 @@ const Main = () => {
 
     const weatherLocation = location ? location : userLocation;
 
-    console.log('Я Main, location = ', weatherLocation)
-
     return (
         <div className={style.main}>
             {weatherLocation && weather &&

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../common/Button/Button';
 import speakerHandler from '../../../services/speakerHandler';
 import {setTempDimension} from '../../../redux/actions';
+import Notification from '../../common/Notification';
 
 import styles from './settingsBlock.module.scss';
 
@@ -12,9 +13,10 @@ const SettingsBlock = () => {
     const isActiveC = currentDimension === 'c' ? 'active': null;
     const isActiveF = currentDimension === 'f' ? 'active': null;
     const [speakerActive, setSpeakerActive] = useState(false);
+    const [errorRequest, setErrorRequest] = useState(false);
 
     const buttonBackgroundHandler = () => {
-    
+        errorRequest ? setErrorRequest(false) : setErrorRequest(true);
     }
     const buttonSetFHandler = () => {
         dispatch(setTempDimension('f'));
@@ -29,6 +31,7 @@ const SettingsBlock = () => {
 
     return (
         <div className = {styles.block}>
+            {errorRequest && <Notification />}
             <Button add_class = 'button-update' handler = {buttonBackgroundHandler}/>
             <Button type_view = 'type_1001' add_class = {isActiveF} handler = {buttonSetFHandler}>
                 °F

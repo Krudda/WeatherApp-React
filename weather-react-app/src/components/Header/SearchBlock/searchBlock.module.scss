@@ -15,7 +15,6 @@
                 border: 1.4px solid rgba(180,184,187,.8);
                 outline: none;
                 background-color: $secondary-gray;
-
                 font-family: Roboto-Light, tahoma, sans-serif;
                 font-size: 1.5rem;
                 line-height: 1.5rem;
@@ -24,42 +23,9 @@
                     color: $main-text-color;
                     text-transform: lowercase;
                 }
-            //     @media (max-width: 720px ) {
-            //       width: 30vw;
-            //    }
-            //    @media (max-width: 480px ) {
-            //     width: 190px;
-            //     }
                 
             }
-            // #button-voice {
-            //     padding: 0;
-            //     position: absolute;
-            //     right: 95px;
-            //     width: 20px;
-            //     height: 40px;
-            //     background-color: transparent;
-            //     border: none;
-            //     background-image: url('/assets/img/mic.png');
-            //     background-position: center;
-            //     background-repeat: no-repeat;
-            //     background-size: 100%;
-            //     outline: none;
-            //     cursor: pointer;
-            //     &.active {
-            //       background-image: url('/assets/img/mic-active.png');
-            //     }
-            //     @media (max-width: 720px ) {
-            //       right: 10vw;
-            //    }
-            //    @media (max-width: 550px ) {
-            //     right: 60px;
-            // }
-            // }
-        
-    //     @media (max-width: 480px ) {
-    //       margin-top: 1rem;
-    //    }
+ 
     @media (max-width: 720px ) {
         width: 10vw;
     }
@@ -74,7 +40,7 @@
         height: 40px;
         background-color: rgba(0,0,0,0);
         border: none;
-        background-image: url(/assets/images/mic.png);
+        background-image: url('/assets/images/mic.png');
         background-position: 50%;
         background-repeat: no-repeat;
         background-size: 100%;

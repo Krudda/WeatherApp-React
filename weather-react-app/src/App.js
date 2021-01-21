@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { getWeather, getRealUserLocation } from './redux/actions';
 
 import Header from './components/Header'
-import Main from './components/Main/index'
+import Main from './components/Main'
 import RSS from './components/RSS'
 
 // import getMainBackground from './services/getMainBackground'
@@ -25,7 +25,6 @@ function App() {
   const weatherLocation = searchLocation.city !=='' ? searchLocation : userLocation;
 
   useEffect(() => {
-    console.log('Сработал useEffect 1 in App')
     dispatch(getWeather(weatherLocation, tempDimension));
   }, [dispatch, weatherLocation, tempDimension]);
 
