@@ -3,6 +3,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    // filter: grayscale(1);
+	// -ms-filter: grayscale(1);
+	// -webkit-filter: grayscale(1) ;
+	// -moz-filter: grayscale(1);
+	// -o-filter: grayscale(1);
 }
 .map_area {
     height: 400px;
@@ -14,6 +19,9 @@
 .map {
     width: 400px;
     height: 400px;
+    &:only-child {
+        height: 107% !important;
+    }
 }
 .geolocation_area {
     display: flex;
