@@ -9,20 +9,30 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { styled } from '@material-ui/core/styles';
+import { cyan, amber } from '@material-ui/core/colors'
 
 
+const ErrorDialog = styled(Dialog)({
+    '& .MuiPaper-rounded': {
+        borderRadius: '20px'
+    }
+});
 const ErrorTitle = styled(DialogTitle)({
+    margin: '5px 24px 0',
     color: '#ff5f5f',
     textAlign: 'center',
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#fffcf4',
+    borderBottom: '1px solid',
+    borderBottomColor: cyan['700'],
     '& h2': {
         fontSize: '3rem',
     }
 });
 const ErrorDialogContent = styled(DialogContent)({
-    backgroundColor: '#f1f1f1'
+    backgroundColor: '#fffcf4'
 });
 const ErrorDialogContentText = styled(DialogContentText)({
+    paddingTop: '10px',
     fontSize: '2rem',
     textAlign: 'left',
 });
@@ -30,29 +40,42 @@ const ErrorTextField = styled(TextField)({
     '& label': {
         fontSize: '2rem',
     },
-    '& input' : {
-        lineHeight: '2rem',
+    '& label.Mui-focused': {
+        color: cyan['700'],
         fontSize: '2rem',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: cyan['700'],
+    },
+    '& input' : {
+        lineHeight: '2.5rem',
+        fontSize: '2.5rem',
         textTransform: 'uppercase',
         color: '#464646e6',
-        '& focused': {
-            color: 'red'
-        }
-    }
+    },
+    '&  lastOfType' : {
+        display: 'none'
+     }
 });
 const ErrorDialogActions = styled(DialogActions)({
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#fffcf4',
+    padding: '5px 24px 16px',
     '&  button' : {
         fontSize: '2rem',
     },
     '&  button:first-child' : {
         color: '#5e5e5ee6'
+    },
+    '&  button:last-child' : {
+        color: cyan['700']
     }
 });
 
 export default function FormDialog() {
   const [open, setOpen] = useState(true);
   const [searchCity, setSearchCity] = useState('');
+  const [errorField, setErrorField] = useState(false);
+  const [label, setLabel] = useState('search city');
 
   const dispatch = useDispatch();
 
@@ -62,47 +85,56 @@ export default function FormDialog() {
 
   const inputHandler = (e) => {
     setSearchCity(e.target.value.toUpperCase());
+    setErrorField(false);
+    setLabel('search city')
 }
 const submitHandler  = (e) =>{
     e.preventDefault();
     const validCity = searchCity.trim();
-    if (validCity !== '') {
+
+    if (validCity === '') {
+        setErrorField(true);
+        setLabel('PLEASE INPUT CITY NAME')
+    } else {
         dispatch(setSearchLocation(validCity));
+        setSearchCity('');
+        setOpen(false);
+        setLabel('search city')
     }
-    setSearchCity('');
-    setOpen(false);
 }
 
   return (
     <div>
-        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <ErrorDialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
             <ErrorTitle id="form-dialog-title">Weather request execution error</ErrorTitle>
             <ErrorDialogContent>
                 <ErrorDialogContentText>
                     Apparently, the name of the city you are looking for was written incorrectly,
                     or its name was not correctly recognized. Try again:
                 </ErrorDialogContentText>
-                <ErrorTextField
-                    onInput = {inputHandler}
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="search city"
-                    type="text"
-                    fullWidth
-                    value = {searchCity}
-                    // onSubmit={handleClose}
-                />
+                <form autoComplete="off" onSubmit = {submitHandler}>
+                    <ErrorTextField
+                        error = {errorField}
+                        onInput = {inputHandler}
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label = {label}
+                        type="text"
+                        fullWidth
+                        value = {searchCity}
+                    />
+                </form>
             </ErrorDialogContent>
             <ErrorDialogActions>
                 <Button onClick={handleClose} >
                     Cancel
                 </Button>
-                <Button onClick={submitHandler} color="primary">
+                <Button onClick={submitHandler}>
                     Search
                 </Button>
             </ErrorDialogActions>
-      </Dialog>
+      </ErrorDialog>
     </div>
   );
 }
