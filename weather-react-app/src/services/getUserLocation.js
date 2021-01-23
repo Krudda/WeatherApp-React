@@ -9,7 +9,7 @@ async function getUserLocation() {
     const res = await fetch(url);
     const data = await res.json();
     const location = {city: data.city, country: data.country};
-    // console.log('REAL location: ', location)
+    console.log('REAL location: ', location)
     return location;
   } catch (err) {
     console.log('Ошибка запроса локации!!!')

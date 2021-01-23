@@ -10,6 +10,8 @@ const MapBlock = () => {
     const lat = useSelector(state => state.weather.weather.lat);
     const loading = useSelector(state => state.loading.loading);
 
+    console.log('loading', loading)
+
 
     return (
         <div className={styles.block}>

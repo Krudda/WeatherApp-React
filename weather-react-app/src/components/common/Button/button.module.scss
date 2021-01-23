@@ -49,40 +49,21 @@
 
 .button-update {
     position: relative;
-    padding: 3px 3px 0;
-    background-image: url('../../../assets/images/upd-bg1.png');
+    background-image: url('../../../assets/images/upd-bg.png');
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 80%;
+    &:hover {
+        background-image: url('../../../assets/images/upd-icon1.png');
+        background-size: 60%;
+        background-position: center center;
+    }
+    &.active {
+        background-image: none;
+    }
 }
 .button-search {
     width: 9rem;
-}
-#spinner {
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    top: 3px;
-    right: 3px;
-    background-image: url('../../../assets/images/upd-icon.png');
-    background-position: top right;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    &.active {
-        animation-name: rotation;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        @keyframes rotation {
-            0% {
-                transform:rotate(0deg);
-            }
-            100% {
-                transform:rotate(-360deg);
-            }
-        }
-    }
-
 }
 .speaker {
     background-image: url('../../../assets/images/speaker.png');

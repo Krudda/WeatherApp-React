@@ -2,21 +2,19 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../common/Button';
 import speakerHandler from '../../../services/speakerHandler';
-import {setTempDimension} from '../../../redux/actions';
-import Notification from '../../common/Notification';
+import {setTempDimension, setMainBackground} from '../../../redux/actions';
+import Spinner from '../../common/Spinner';
 
 import styles from './settingsBlock.module.scss';
 
 const SettingsBlock = () => {
     const dispatch = useDispatch();
     const  currentDimension = useSelector(state => state.tempDimension.tempDimension);
-    const isActiveC = currentDimension === 'c' ? 'active': null;
-    const isActiveF = currentDimension === 'f' ? 'active': null;
+    const  imageLoading = useSelector(state => state.backgroundImage.isLoading);
     const [speakerActive, setSpeakerActive] = useState(false);
-    const [errorRequest, setErrorRequest] = useState(false);
-
+    
     const buttonBackgroundHandler = () => {
-        errorRequest ? setErrorRequest(false) : setErrorRequest(true);
+        dispatch(setMainBackground());
     }
     const buttonSetFHandler = () => {
         dispatch(setTempDimension('f'));
@@ -31,12 +29,13 @@ const SettingsBlock = () => {
 
     return (
         <div className = {styles.block}>
-            {errorRequest && <Notification />}
-            <Button add_class = 'button-update' handler = {buttonBackgroundHandler}/>
-            <Button type_view = 'type_1001' add_class = {isActiveF} handler = {buttonSetFHandler}>
+            <Button add_class = 'button-update' active = {imageLoading} handler = {buttonBackgroundHandler}>
+                { imageLoading && <Spinner add_class = 'update'/> }
+            </Button>
+            <Button type_view = 'type_1001' active = {currentDimension === 'f'} handler = {buttonSetFHandler}>
                 °F
             </Button>
-            <Button type_view = 'type_0110' add_class = {isActiveC} handler = {buttonSetCHandler}>
+            <Button type_view = 'type_0110' active = {currentDimension === 'c'} handler = {buttonSetCHandler}>
                 °C
             </Button>
             <Button add_class = 'speaker' active= {speakerActive} handler = {buttonSpeakerHandler}/>

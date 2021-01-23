@@ -1,14 +1,15 @@
 import {useDispatch, useSelector}  from 'react-redux';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getWeather, setTempDimension, setSearchLocation } from './redux/actions';
+import { getWeather, setTempDimension, 
+  setSearchLocation, getRealUserLocation, 
+  setMainBackground } from './redux/actions';
 
 import Header from './components/Header';
 import Main from './components/Main';
 import RSS from './components/RSS';
 import Notification from './components/common/Notification';
 
-// import getMainBackground from './services/getMainBackground'
 
 import styles from './app.module.scss';
 
@@ -22,25 +23,24 @@ function App() {
   const weather = useSelector(state => state.weather.weather);
 
   const dispatch = useDispatch();
-  // dispatch(getRealUserLocation());
-  // dispatch(setMainBackground());
+  const urlLocation = useLocation();
 
   const weatherLocation = searchLocation.city !=='' ? searchLocation : userLocation;
 
   useEffect(() => {
-    dispatch(getWeather(weatherLocation, tempDimension));
-  }, [dispatch, weatherLocation, tempDimension]);
+    dispatch(getRealUserLocation());
+    dispatch(setMainBackground());
+  }, []);
 
   useEffect(() => {
-    console.log('Сработал useEffect 2 in App on weatherLocation')
-    // dispatch(getRealUserLocation());
-  }, [weatherLocation]);
+    if (weatherLocation.city) {
+      dispatch(getWeather(weatherLocation, tempDimension));
+    }
+  }, [dispatch, weatherLocation, tempDimension]);
 
   const backgroundImage = {
     background: `url(${image}) center center / cover no-repeat fixed`
   }
-
-  const urlLocation = useLocation();
 
   useEffect(() => {
     const currentPath = urlLocation.pathname.slice(1);

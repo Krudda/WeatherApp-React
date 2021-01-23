@@ -7,7 +7,9 @@ import {
     DISABLE_BUTTON,
     SET_TEMP_DIMENSION,
     SHOW_SPINNER,
-    HIDE_SPINNER
+    HIDE_SPINNER,
+    SHOW_IMAGE_SPINNER,
+    HIDE_IMAGE_SPINNER
 } from './types';
 
 import getUserLocation from '../services/getUserLocation';
@@ -29,20 +31,23 @@ export function getRealUserLocation() {
     }
 }
 
-export function setMainBackground() {
+export function setMainBackground(ImageWeather, timeZone) {
     return async dispatch => {
-        const mainBackground = await getMainBackground();
-        dispatch({type: SET_MAIN_BACKGROUND, payload: mainBackground})
+        dispatch(showImageSpinner());
+        const mainBackground = await getMainBackground(ImageWeather, timeZone);
+        dispatch({type: SET_MAIN_BACKGROUND, payload: mainBackground});
+        dispatch(hideImageSpinner());
     }
 }
 
 export function getWeather(location, tempDimension) {
     return async dispatch => {
         dispatch(showSpinner());
-        // const userLocation = await getUserLocation();
-        // dispatch({type: GET_USER_LOCATION, payload: userLocation})
         const weather = await getCurrentWeather(location, tempDimension);
         dispatch({type: GET_WEATHER, payload: weather});
+        const ImageWeather = weather.data[0].weather.description;
+        const timezone = weather.timezone;
+        dispatch(setMainBackground(ImageWeather, timezone));
         dispatch(hideSpinner());
     }
 }
@@ -50,17 +55,6 @@ export function getWeather(location, tempDimension) {
 export function tellWeather() {
     return  function() {
         speakerHandler();
-    }
-}
-
-export function enableButton() {
-    return {
-        type: ENABLE_BUTTON
-    }
-}
-export function disableButton() {
-    return {
-        type: DISABLE_BUTTON
     }
 }
 
@@ -80,5 +74,15 @@ export function showSpinner() {
 export function hideSpinner() {
     return {
         type: HIDE_SPINNER
+    }
+}
+export function showImageSpinner() {
+    return {
+        type: SHOW_IMAGE_SPINNER
+    }
+}
+export function hideImageSpinner() {
+    return {
+        type: HIDE_IMAGE_SPINNER
     }
 }
