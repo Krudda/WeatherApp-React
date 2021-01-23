@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import WeatherImage from '../../../common/WeatherImage/WeatherImage';
-import WeatherDesc from '../../../common/WeatherDesc/WeatherDesc';
+import WeatherImage from '../../../common/WeatherImage';
+import WeatherDesc from '../../../common/WeatherDesc';
 
 import  styles from './weatherBody.module.scss';
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../../common/Button/Button';
+import Button from '../../common/Button';
 import speakerHandler from '../../../services/speakerHandler';
 import {setTempDimension} from '../../../redux/actions';
 import Notification from '../../common/Notification';

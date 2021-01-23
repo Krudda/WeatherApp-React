@@ -11,7 +11,7 @@ const Mic = ({handler, active}) => {
 
     return (
         <div 
-            className = {classes} 
+            className = {classes}
             onClick = {handler}
         ></div>
     )

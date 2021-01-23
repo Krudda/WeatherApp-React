@@ -1,5 +1,5 @@
 import DateTime from './DateTime';
-import TempBlock from '../../../common/TempBlock/TempBlock';
+import TempBlock from '../../../common/TempBlock';
 import WeatherDescription from './WeatherDescription';
 
 import  styles from './weatherBody.module.scss';

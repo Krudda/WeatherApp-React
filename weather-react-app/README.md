@@ -4,6 +4,7 @@ CSS-modules
 prop-types
 material-UI
 redux-thunk
+React-Router
 Redux
 library classNames
 API:

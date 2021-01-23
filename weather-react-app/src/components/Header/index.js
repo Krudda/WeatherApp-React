@@ -1,6 +1,6 @@
 import React from 'react';
-import SettingsBlock from './SettingsBlock/SettingsBlock';
-import SearchBlock from './SearchBlock/SearchBlock';
+import SettingsBlock from './SettingsBlock';
+import SearchBlock from './SearchBlock';
 import style from './header.module.scss';
 
 const Header = () => {

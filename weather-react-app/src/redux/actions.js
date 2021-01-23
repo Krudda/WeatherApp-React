@@ -65,9 +65,10 @@ export function disableButton() {
 }
 
 export function setTempDimension(dimension) {
+    const validDimension = dimension === 'f' ? dimension : 'c';
     return {
         type: SET_TEMP_DIMENSION, 
-        payload: dimension
+        payload: validDimension
     }
 }
 

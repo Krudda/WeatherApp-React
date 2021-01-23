@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import {setSearchLocation} from '../../../redux/actions';
-import Button from '../../common/Button/Button';
+import Button from '../../common/Button';
 import Mic from './Mic';
 
 import styles from './searchBlock.module.scss';
@@ -48,7 +48,7 @@ const SearchBlock = () => {
 
     const submitHandler  = (e) =>{
         e.preventDefault();
-        const validCity = searchCity.trim();
+        const validCity = searchCity.trim().toLowerCase();
         if (validCity !== '') {
             dispatch(setSearchLocation(validCity));
         }

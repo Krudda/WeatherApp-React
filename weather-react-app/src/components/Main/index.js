@@ -1,7 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import MapBlock from './MapBlock/MapBlock.jsx';
-import WeatherBlock from './WeatherBlock/WeatherBlock.jsx';
+import MapBlock from './MapBlock';
+import WeatherBlock from './WeatherBlock';
 
 import style from './main.module.scss';
 
@@ -11,8 +13,7 @@ const Main = () => {
     const weather = weatherData.data;
     const tempDimension = useSelector(state => state.tempDimension.tempDimension);
     const userLocation = useSelector(state => state.location.userLocation);
-
-    // console.log("Я Main,  погоду передаю ", weather);
+    const history = useHistory();
 
     const location = {
         city: weatherData.city_name,
@@ -20,6 +21,12 @@ const Main = () => {
     }
 
     const weatherLocation = location ? location : userLocation;
+  
+    useEffect(() => {
+        weatherLocation.city ? 
+        history.push(`city=${weatherLocation.city.toLowerCase()}&temp_dim=${tempDimension.toLowerCase()}`) 
+        : history.push('/');
+    }, [weatherData])
 
     return (
         <div className={style.main}>

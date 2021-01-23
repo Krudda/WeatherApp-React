@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import TempBlock from '../../../common/TempBlock/TempBlock';
-import WeatherImage from '../../../common/WeatherImage/WeatherImage';
+import TempBlock from '../../../common/TempBlock';
+import WeatherImage from '../../../common/WeatherImage';
 import days from '../../../../data/days'
 
 import styles from './weatherFooter.module.scss'

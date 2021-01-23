@@ -9,7 +9,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { styled } from '@material-ui/core/styles';
-import { cyan, amber } from '@material-ui/core/colors'
+import { cyan } from '@material-ui/core/colors'
 
 
 const ErrorDialog = styled(Dialog)({
@@ -90,7 +90,7 @@ export default function FormDialog() {
 }
 const submitHandler  = (e) =>{
     e.preventDefault();
-    const validCity = searchCity.trim();
+    const validCity = searchCity.trim().toLowerCase();
 
     if (validCity === '') {
         setErrorField(true);
