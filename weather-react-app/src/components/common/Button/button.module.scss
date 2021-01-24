@@ -47,21 +47,56 @@
     }
 }
 
-.button-update {
+.button_update {
     position: relative;
     background-image: url('../../../assets/images/upd-bg.png');
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 80%;
-    &:hover {
-        background-image: url('../../../assets/images/upd-icon1.png');
-        background-size: 60%;
-        background-position: center center;
-    }
     &.active {
         background-image: none;
     }
+    &:hover {
+        background-image: none;
+    }
+    &:hover span {
+        background-image: url('../../../assets/images/upd-icon1.png');
+        background-size: 90%;
+        animation-name: rotation;
+        background-position: center center;
+        background-repeat: no-repeat;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        @keyframes rotation {
+            0% {
+                transform:rotate(0deg);
+            }
+            100% {
+                transform:rotate(-360deg);
+            }
+        }
+    }
 }
+// .spinner {
+//     background-image: url('../../../assets/images/upd-icon1.png');
+//     background-size: 60%;
+//     background-position: center center;
+//     &:hover {
+//         animation-name: rotation;
+//         animation-duration: 1.5s;
+//         animation-iteration-count: infinite;
+//         animation-timing-function: linear;
+//         @keyframes rotation {
+//             0% {
+//                 transform:rotate(0deg);
+//             }
+//             100% {
+//                 transform:rotate(-360deg);
+//             }
+//         }
+//     }
+// }
 .button-search {
     width: 9rem;
 }

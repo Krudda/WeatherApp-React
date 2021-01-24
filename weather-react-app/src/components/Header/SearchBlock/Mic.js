@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import LightTooltip from '../../common/Tooltip';
 
 import styles from './searchBlock.module.scss';
 
@@ -10,10 +11,9 @@ const Mic = ({handler, active}) => {
     )
 
     return (
-        <div 
-            className = {classes}
-            onClick = {handler}
-        ></div>
+        <LightTooltip title="Voice search">
+            <div className = {classes} onClick = {handler}></div>
+        </LightTooltip>
     )
 }
 

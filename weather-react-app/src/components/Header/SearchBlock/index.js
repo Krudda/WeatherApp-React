@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import {setSearchLocation} from '../../../redux/actions';
 import Button from '../../common/Button';
 import Mic from './Mic';
+import LightTooltip from '../../common/Tooltip';
 
 import styles from './searchBlock.module.scss';
 
@@ -58,22 +59,30 @@ const SearchBlock = () => {
     return (
         <div className = {styles.block}>
             <form className = {styles.form}>
-                <input 
-                    className = {styles.input}
-                    type = 'text' 
-                    placeholder = 'search city'
-                    onInput = {inputHandler}
-                    value = {searchCity}
-                    onFocus = {focusHandler}
-                />
-                <Button 
-                    type_view = 'type_0110'  
-                    handler = {submitHandler} 
-                    type='submit' 
-                    add_class = 'button-search'
-                    >
-                        search
-                    </Button>
+            <LightTooltip title="Input the city">
+                    <div>
+                        <input 
+                            className = {styles.input}
+                            type = 'text' 
+                            placeholder = 'search city'
+                            onInput = {inputHandler}
+                            value = {searchCity}
+                            onFocus = {focusHandler}
+                        />
+                    </div>
+                </LightTooltip>
+                <LightTooltip title="Search the weather">
+                    <div>
+                        <Button 
+                            type_view = 'type_0110'  
+                            handler = {submitHandler} 
+                            type='submit' 
+                            add_class = 'button-search'
+                        >
+                            search
+                        </Button>
+                    </div>
+                </LightTooltip>
                 <Mic 
                     active = {micActive}
                     handler = {voiceHandler}

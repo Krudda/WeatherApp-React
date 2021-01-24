@@ -13,3 +13,23 @@ export const coordinatesConvertor = (num) => {
     const second = Math.round((rawMinute % 1) * 60);
     return `${degree}°${minute}′${second}′′`;
 };
+
+export const getSeason = () => {
+    const now = new Date().getMonth();
+    switch (now) {
+        case 11:
+        case 0:
+        case 1:
+            return 'winter';
+        case 2:
+        case 3:
+        case 4:
+            return 'spring';
+        case 8:
+        case 9:
+        case 10:
+            return 'fall';
+        default:
+            return 'summer';
+    }
+}

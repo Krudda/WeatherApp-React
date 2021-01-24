@@ -1,6 +1,5 @@
 import { keys } from '../data/apiKeys';
 
-
 const key = keys.ipKEY;
 
 async function getUserLocation() {
@@ -8,11 +7,10 @@ async function getUserLocation() {
   try {
     const res = await fetch(url);
     const data = await res.json();
-    const location = {city: data.city, country: data.country};
+    const location = {city: data.city.toLowerCase(), country: data.country.toLowerCase()};
     console.log('REAL location: ', location)
     return location;
   } catch (err) {
-    console.log('Ошибка запроса локации!!!')
     return {city: 'London', country: 'GB'}
   }
 }

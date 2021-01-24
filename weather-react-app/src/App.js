@@ -24,12 +24,13 @@ function App() {
 
   const dispatch = useDispatch();
   const urlLocation = useLocation();
+  console.log('urlLocation', urlLocation)
 
   const weatherLocation = searchLocation.city !=='' ? searchLocation : userLocation;
 
   useEffect(() => {
-    dispatch(getRealUserLocation());
-    dispatch(setMainBackground());
+    if  (urlLocation.pathname === '/') {dispatch(getRealUserLocation())}
+    // dispatch(setMainBackground());
   }, []);
 
   useEffect(() => {

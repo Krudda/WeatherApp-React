@@ -2,16 +2,16 @@ import {
     SET_MAIN_BACKGROUND, 
     GET_USER_LOCATION, 
     GET_WEATHER, 
-    SET_SEARCH_LOCATION, 
-    ENABLE_BUTTON, 
-    DISABLE_BUTTON,
+    SET_SEARCH_LOCATION,
     SET_TEMP_DIMENSION,
     SHOW_SPINNER,
     HIDE_SPINNER,
     SHOW_IMAGE_SPINNER,
-    HIDE_IMAGE_SPINNER
+    HIDE_IMAGE_SPINNER,
+    NEED_BACKGROUND
 } from './types';
 
+import store from './store';
 import getUserLocation from '../services/getUserLocation';
 import getMainBackground from '../services/getMainBackground';
 import getCurrentWeather from '../services/getWeather';
@@ -32,11 +32,18 @@ export function getRealUserLocation() {
 }
 
 export function setMainBackground(ImageWeather, timeZone) {
-    return async dispatch => {
-        dispatch(showImageSpinner());
-        const mainBackground = await getMainBackground(ImageWeather, timeZone);
-        dispatch({type: SET_MAIN_BACKGROUND, payload: mainBackground});
-        dispatch(hideImageSpinner());
+    const state = store.getState();
+    const needImage  = state.backgroundImage.needImage;
+
+    if (needImage) {
+        return async dispatch => {
+            dispatch(showImageSpinner());
+            const mainBackground = await getMainBackground(ImageWeather, timeZone);
+            dispatch({type: SET_MAIN_BACKGROUND, payload: mainBackground});
+            dispatch(hideImageSpinner());
+        }
+    } else {
+        return {type: NEED_BACKGROUND, payload: true};
     }
 }
 
@@ -45,8 +52,8 @@ export function getWeather(location, tempDimension) {
         dispatch(showSpinner());
         const weather = await getCurrentWeather(location, tempDimension);
         dispatch({type: GET_WEATHER, payload: weather});
-        const ImageWeather = weather.data[0].weather.description;
-        const timezone = weather.timezone;
+        const ImageWeather =  weather ? weather.data[0].weather.description: null;
+        const timezone = weather ?  weather.timezone : null;
         dispatch(setMainBackground(ImageWeather, timezone));
         dispatch(hideSpinner());
     }
