@@ -2,7 +2,7 @@ import store from '../redux/store';
 
 const synth = window.speechSynthesis;
 
-const speakerHandler = (disActivSpeaker) => {
+const speakerHandler = (disActivSpeaker, disableSynthesis) => {
 
     const state = store.getState();
     const city = state.weather.weather.city_name;
@@ -30,9 +30,10 @@ const speakerHandler = (disActivSpeaker) => {
             utterThis.voice = voices.find(voice => voice.lang === 'en-US');
             utterThis.onend = function () {
                 disActivSpeaker(false);
+                disableSynthesis();
             };
-            utterThis.onerror = function (event) {
-
+            utterThis.onerror = function () {
+                synth.cancel();
             };
             synth.speak(utterThis);
         }

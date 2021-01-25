@@ -19,7 +19,7 @@ function App() {
   const image = useSelector(state => state.backgroundImage.mainBackgroundImage);
   const userLocation = useSelector(state => state.location.userLocation);
   const searchLocation = useSelector(state => state.location.searchLocation);
-  const tempDimension = useSelector(state => state.tempDimension.tempDimension);
+  const tempDimension = useSelector(state => state.serviceStates.tempDimension);
   const weather = useSelector(state => state.weather.weather);
 
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setSearchLocation} from '../../../redux/actions';
 import Button from '../../common/Button';
 import Mic from './Mic';
@@ -7,10 +7,10 @@ import LightTooltip from '../../common/Tooltip';
 
 import styles from './searchBlock.module.scss';
 
-
 const SearchBlock = () => {
     const [searchCity, setSearchCity] = useState('');
     const [micActive, setMicActive] = useState(false);
+    const voiceIsSynthesized =  useSelector(state => state.serviceStates.voiceSynthesizing);
 
     const dispatch = useDispatch();
 
@@ -23,6 +23,9 @@ const SearchBlock = () => {
     }
 
     const voiceHandler  = () => {
+
+        if (voiceIsSynthesized) return false;
+
         setMicActive (true);
 
         const SpeechRecognition = new (
@@ -59,7 +62,7 @@ const SearchBlock = () => {
     return (
         <div className = {styles.block}>
             <form className = {styles.form}>
-            <LightTooltip title="Input the city">
+            <LightTooltip title="input the city name">
                     <div>
                         <input 
                             className = {styles.input}
@@ -71,7 +74,7 @@ const SearchBlock = () => {
                         />
                     </div>
                 </LightTooltip>
-                <LightTooltip title="Search the weather">
+                <LightTooltip title="search the weather">
                     <div>
                         <Button 
                             type_view = 'type_0110'  
@@ -83,7 +86,7 @@ const SearchBlock = () => {
                         </Button>
                     </div>
                 </LightTooltip>
-                <Mic 
+                <Mic
                     active = {micActive}
                     handler = {voiceHandler}
                 />

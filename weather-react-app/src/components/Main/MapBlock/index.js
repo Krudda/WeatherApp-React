@@ -8,10 +8,7 @@ import styles from './mapBlock.module.scss';
 const MapBlock = () => {
     const lon = useSelector(state => state.weather.weather.lon);
     const lat = useSelector(state => state.weather.weather.lat);
-    const loading = useSelector(state => state.loading.loading);
-
-    console.log('loading', loading)
-
+    const loading = useSelector(state => state.serviceStates.weatherLoading);
 
     return (
         <div className={styles.block}>

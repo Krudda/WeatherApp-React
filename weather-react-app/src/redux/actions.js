@@ -8,7 +8,8 @@ import {
     HIDE_SPINNER,
     SHOW_IMAGE_SPINNER,
     HIDE_IMAGE_SPINNER,
-    NEED_BACKGROUND
+    NEED_BACKGROUND, 
+    VOICE_IS_SYNTHESIZED
 } from './types';
 
 import store from './store';
@@ -33,7 +34,7 @@ export function getRealUserLocation() {
 
 export function setMainBackground(ImageWeather, timeZone) {
     const state = store.getState();
-    const needImage  = state.backgroundImage.needImage;
+    const needImage  = state.serviceStates.needImage;
 
     if (needImage) {
         return async dispatch => {
@@ -59,17 +60,24 @@ export function getWeather(location, tempDimension) {
     }
 }
 
-export function tellWeather() {
-    return  function() {
-        speakerHandler();
-    }
-}
+// export function tellWeather() {
+//     return  function() {
+//         speakerHandler();
+//     }
+// }
 
 export function setTempDimension(dimension) {
     const validDimension = dimension === 'f' ? dimension : 'c';
     return {
         type: SET_TEMP_DIMENSION, 
         payload: validDimension
+    }
+}
+
+export function setVoiceSynthesis(isSynthesized) {
+    return {
+        type: VOICE_IS_SYNTHESIZED, 
+        payload: isSynthesized
     }
 }
 

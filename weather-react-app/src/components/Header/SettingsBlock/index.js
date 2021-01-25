@@ -1,28 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../common/Button';
 import speakerHandler from '../../../services/speakerHandler';
-import {setTempDimension, setMainBackground} from '../../../redux/actions';
+import {setTempDimension, setMainBackground, setVoiceSynthesis} from '../../../redux/actions';
 import Spinner from '../../common/Spinner';
-// import Tooltip from '@material-ui/core/Tooltip';
-// import { withStyles, } from '@material-ui/core/styles';
+
 import LightTooltip from '../../common/Tooltip';
 
 import styles from './settingsBlock.module.scss';
 
-// const LightTooltip = withStyles((theme) => ({
-//     tooltip: {
-//       backgroundColor: theme.palette.common.white,
-//       color: 'rgba(0, 0, 0, 0.87)',
-//       boxShadow: theme.shadows[1],
-//       fontSize: 11,
-//     },
-//   }))(Tooltip);
-
 const SettingsBlock = () => {
     const dispatch = useDispatch();
-    const  currentDimension = useSelector(state => state.tempDimension.tempDimension);
-    const  imageLoading = useSelector(state => state.backgroundImage.isLoading);
+    const currentDimension = useSelector(state => state.serviceStates.tempDimension);
+    const  imageLoading = useSelector(state => state.serviceStates.imageLoading);
     const [speakerActive, setSpeakerActive] = useState(false);
     
     const buttonBackgroundHandler = () => {
@@ -35,13 +25,17 @@ const SettingsBlock = () => {
         dispatch(setTempDimension('c'));
     }
     const buttonSpeakerHandler = () => {
+        const disableSynthesis = () => {
+            dispatch(setVoiceSynthesis(false));
+        }
         setSpeakerActive(true);
-        speakerHandler(setSpeakerActive);
+        dispatch(setVoiceSynthesis(true))
+        speakerHandler(setSpeakerActive, disableSynthesis);
     }
 
     return (
         <div className = {styles.block}>
-            <LightTooltip title="Change image">
+            <LightTooltip title="change image">
                 <div>
                 <Button add_class = 'button_update' active = {imageLoading} handler = {buttonBackgroundHandler}>
                     { imageLoading ? 
@@ -51,7 +45,7 @@ const SettingsBlock = () => {
                 </div>
             </LightTooltip>
 
-            <LightTooltip title="Temperature in Fahrenheit">
+            <LightTooltip title="temperature in Fahrenheit">
                 <div>
                     <Button type_view = 'type_1001' active = {currentDimension === 'f'} handler = {buttonSetFHandler}>
                         °F
@@ -59,14 +53,14 @@ const SettingsBlock = () => {
                 </div>
             </LightTooltip>
 
-            <LightTooltip title="Temperature in Celsius">
+            <LightTooltip title="temperature in Celsius">
                 <div>
                     <Button type_view = 'type_0110' active = {currentDimension === 'c'} handler = {buttonSetCHandler}>
                         °C
                     </Button>
                 </div>
             </LightTooltip>
-            <LightTooltip title="Speak the weather">
+            <LightTooltip title="tell the weather">
                 <div>
                     <Button add_class = 'speaker' active= {speakerActive} handler = {buttonSpeakerHandler}/>
                 </div>

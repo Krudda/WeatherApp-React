@@ -11,7 +11,8 @@ import style from './main.module.scss';
 const Main = () => {
     const weatherData = useSelector(state => state.weather.weather);
     const weather = weatherData.data;
-    const tempDimension = useSelector(state => state.tempDimension.tempDimension);
+    // const tempDimension = useSelector(state => state.tempDimension.tempDimension);
+    const tempDimension = useSelector(state => state.serviceStates.tempDimension);
     const userLocation = useSelector(state => state.location.userLocation);
     const history = useHistory();
 
