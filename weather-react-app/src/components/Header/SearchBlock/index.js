@@ -7,6 +7,8 @@ import LightTooltip from '../../common/Tooltip';
 
 import styles from './searchBlock.module.scss';
 
+const recognitionSupported = window.webkitSpeechRecognition || window.SpeechRecognition;
+
 const SearchBlock = () => {
     const [searchCity, setSearchCity] = useState('');
     const [micActive, setMicActive] = useState(false);
@@ -23,31 +25,40 @@ const SearchBlock = () => {
     }
 
     const voiceHandler  = () => {
-
         if (voiceIsSynthesized) return false;
+        if (!recognitionSupported) {
+            return false;
+        }
 
         setMicActive (true);
+        setSearchCity('listening...');
 
-        const SpeechRecognition = new (
-        window.SpeechRecognition
-        || window.webkitSpeechRecognition 
-        || window.mozSpeechRecognition 
-        || window.msSpeechRecognition
-        )()
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
 
-        SpeechRecognition.lang = "en-EN";
-        SpeechRecognition.onresult = function (event) {
-            const voiceCity = event.results[0][0].transcript;
-            setSearchCity(voiceCity)
+        recognition.lang = "en-US";
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.onresult = function (event) {
+            console.log(event.results);
+            const voiceCity = (event.results[0][0].transcript).toLowerCase();
+            setSearchCity(voiceCity);
             dispatch(setSearchLocation(voiceCity));
         }
 
-        SpeechRecognition.onspeechend = function() {
-            SpeechRecognition.stop();
+        recognition.onerror = function(event) {
+            console.log(event)
+            setSearchCity('');
+            setMicActive (false);
+        }
+
+        recognition.onspeechend = function() {
+            recognition.stop();
             setMicActive (false);
         };
-          
-        SpeechRecognition.start();
+        
+        recognition.start();
     }
 
     const submitHandler  = (e) =>{
@@ -86,10 +97,10 @@ const SearchBlock = () => {
                         </Button>
                     </div>
                 </LightTooltip>
-                <Mic
+                { recognitionSupported && <Mic
                     active = {micActive}
                     handler = {voiceHandler}
-                />
+                />}
             </form>
         </div>
     )

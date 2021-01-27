@@ -16,7 +16,6 @@ import store from './store';
 import getUserLocation from '../services/getUserLocation';
 import getMainBackground from '../services/getMainBackground';
 import getCurrentWeather from '../services/getWeather';
-import speakerHandler from '../services/speakerHandler';
 
 export function setSearchLocation(city) {
     return {
@@ -53,18 +52,14 @@ export function getWeather(location, tempDimension) {
         dispatch(showSpinner());
         const weather = await getCurrentWeather(location, tempDimension);
         dispatch({type: GET_WEATHER, payload: weather});
-        const ImageWeather =  weather ? weather.data[0].weather.description: null;
-        const timezone = weather ?  weather.timezone : null;
-        dispatch(setMainBackground(ImageWeather, timezone));
+        if (!weather.error) {
+            const ImageWeather =  weather ? weather.data[0].weather.description: null;
+            const timezone = weather ?  weather.timezone : null;
+            dispatch(setMainBackground(ImageWeather, timezone));
+        }
         dispatch(hideSpinner());
     }
 }
-
-// export function tellWeather() {
-//     return  function() {
-//         speakerHandler();
-//     }
-// }
 
 export function setTempDimension(dimension) {
     const validDimension = dimension === 'f' ? dimension : 'c';

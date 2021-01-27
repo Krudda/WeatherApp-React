@@ -8,10 +8,9 @@ async function getUserLocation() {
     const res = await fetch(url);
     const data = await res.json();
     const location = {city: data.city.toLowerCase(), country: data.country.toLowerCase()};
-    console.log('REAL location: ', location)
     return location;
   } catch (err) {
-    return {city: 'London', country: 'GB'}
+    return {city: 'Nizhniy Novgorod', country: 'RU'}
   }
 }
 

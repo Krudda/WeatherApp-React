@@ -10,13 +10,18 @@ async function getCurrentWeather(location, tempDimension) {
     try {
         const res = await fetch(url);
         if (res.status === 200) {
-        const data = await res.json();
-        console.log('weather', data);
-        return data;
+            const data = await res.json();
+            console.log('weather', data);
+            return data;
+        }
+        if (res.status === 204) {
+            return {'error': '204'}
+        }
+        if (res.status === 403) {
+            return {'error': '403'}
         }
     } catch (err) {
-        console.log(err);
-        return false;
+        return {error: err};
     }
 }
 

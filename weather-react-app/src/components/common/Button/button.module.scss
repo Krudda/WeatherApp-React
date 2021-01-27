@@ -13,6 +13,7 @@
     margin-right: 5px;
     &:focus, &:hover { 
         outline: none;
+        transition: all 0.3s ease;
     }
     &:hover {
         background-color: $primary-gray-active !important;
@@ -73,30 +74,11 @@
                 transform:rotate(0deg);
             }
             100% {
-                transform:rotate(-360deg);
+                transform:rotate(360deg);
             }
         }
     }
 }
-// .spinner {
-//     background-image: url('../../../assets/images/upd-icon1.png');
-//     background-size: 60%;
-//     background-position: center center;
-//     &:hover {
-//         animation-name: rotation;
-//         animation-duration: 1.5s;
-//         animation-iteration-count: infinite;
-//         animation-timing-function: linear;
-//         @keyframes rotation {
-//             0% {
-//                 transform:rotate(0deg);
-//             }
-//             100% {
-//                 transform:rotate(-360deg);
-//             }
-//         }
-//     }
-// }
 .button-search {
     width: 9rem;
 }

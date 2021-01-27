@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import  {useDispatch} from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import {setSearchLocation} from '../../../redux/actions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -9,8 +10,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { styled } from '@material-ui/core/styles';
-import { cyan } from '@material-ui/core/colors'
-
+import { cyan } from '@material-ui/core/colors';
 
 const ErrorDialog = styled(Dialog)({
     '& .MuiPaper-rounded': {
@@ -71,37 +71,59 @@ const ErrorDialogActions = styled(DialogActions)({
     }
 });
 
-export default function FormDialog() {
-  const [open, setOpen] = useState(true);
-  const [searchCity, setSearchCity] = useState('');
-  const [errorField, setErrorField] = useState(false);
-  const [label, setLabel] = useState('search city');
 
-  const dispatch = useDispatch();
+export default function Notification({error}) {
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+    const [open, setOpen] = useState(true);
+    const [searchCity, setSearchCity] = useState('');
+    const [errorField, setErrorField] = useState(false);
+    const [label, setLabel] = useState('search city');
+    let notice;
 
-  const inputHandler = (e) => {
-    setSearchCity(e.target.value.toUpperCase());
-    setErrorField(false);
-    setLabel('search city')
-}
-const submitHandler  = (e) =>{
-    e.preventDefault();
-    const validCity = searchCity.trim().toLowerCase();
+    switch (error) {
+        case '403':
+            notice = `Unfortunately, a data transfer error has occurred. Please try again later`;
+            break;
+        case '204':
+            notice = `Apparently, the name of the city you are looking for was written incorrectly,
+            or its name was not correctly recognized. Please try again:`;
+            break;
+        default:
+            notice = `Unfortunately, an unknown error occurred in the application. Please try again later`;
+    }
 
-    if (validCity === '') {
-        setErrorField(true);
-        setLabel('PLEASE INPUT CITY NAME')
-    } else {
-        dispatch(setSearchLocation(validCity));
-        setSearchCity('');
+    const urlLocation = useLocation();
+    const dispatch = useDispatch();
+
+    const handleClose = () => {
         setOpen(false);
+        const currentPath = urlLocation.pathname.slice(1);
+        const searchParams = new URLSearchParams(currentPath);
+        const city = searchParams.get('city');
+        if (city) {
+            dispatch(setSearchLocation(city));
+        };
+    };
+
+    const inputHandler = (e) => {
+        setSearchCity(e.target.value.toUpperCase());
+        setErrorField(false);
         setLabel('search city')
     }
-}
+    const submitHandler  = (e) =>{
+        e.preventDefault();
+        const validCity = searchCity.trim().toLowerCase();
+
+        if (validCity === '') {
+            setErrorField(true);
+            setLabel('PLEASE INPUT CITY NAME')
+        } else {
+            dispatch(setSearchLocation(validCity));
+            setSearchCity('');
+            setOpen(false);
+            setLabel('search city')
+        }
+    }
 
   return (
     <div>
@@ -109,30 +131,33 @@ const submitHandler  = (e) =>{
             <ErrorTitle id="form-dialog-title">Weather request execution error</ErrorTitle>
             <ErrorDialogContent>
                 <ErrorDialogContentText>
-                    Apparently, the name of the city you are looking for was written incorrectly,
-                    or its name was not correctly recognized. Try again:
+                    {notice}
                 </ErrorDialogContentText>
-                <form autoComplete="off" onSubmit = {submitHandler}>
-                    <ErrorTextField
-                        error = {errorField}
-                        onInput = {inputHandler}
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label = {label}
-                        type="text"
-                        fullWidth
-                        value = {searchCity}
-                    />
-                </form>
+                { error === '204' && 
+                    <form autoComplete="off" onSubmit = {submitHandler}>
+                        <ErrorTextField
+                            error = {errorField}
+                            onInput = {inputHandler}
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label = {label}
+                            type="text"
+                            fullWidth
+                            value = {searchCity}
+                        />
+                    </form>
+                }
             </ErrorDialogContent>
             <ErrorDialogActions>
                 <Button onClick={handleClose} >
-                    Cancel
+                    {error === '204' ? 'Cancel' : 'Ok'}
                 </Button>
-                <Button onClick={submitHandler}>
-                    Search
-                </Button>
+                { error === '204' && 
+                    <Button onClick={submitHandler}>
+                        Search
+                    </Button>
+                }
             </ErrorDialogActions>
       </ErrorDialog>
     </div>
