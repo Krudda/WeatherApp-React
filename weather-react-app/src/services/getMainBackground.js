@@ -4,6 +4,7 @@ import { getSeason } from '../assets/utils/utils';
 const key = keys.imageKEY;
 
 async function getMainBackground(ImageWeather = '', timezone) {
+
     const currentTimeZone = timezone ? timezone : 'Europe/Moscow'
     const now = new Date().toLocaleTimeString('en-GB', { timeZone: currentTimeZone });
     const season = getSeason();

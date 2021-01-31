@@ -6,10 +6,10 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 100px;
     height: 110%;
     background-color: transparent;
     .lds_spinner {
-        margin-top: -20%;
         color: $main-text-color;
         display: inline-block;
         position: relative;
@@ -97,4 +97,8 @@
 .update {
     transform: scale(.4);
     right: 10px;
+    min-height: 30px;
+}
+.map {
+    margin-top: -10%;
 }

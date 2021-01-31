@@ -3,10 +3,11 @@
 .temp {
     display: flex;
     justify-content: center;
+    width: 100%;
     .temp_data {
-        font-size: 20rem;
-        line-height: 20rem;
-        letter-spacing: -2rem;
+        font-size: 18rem;
+        line-height: 18rem;
+        letter-spacing: -1.5rem;
         color: $colorized-text;
     }
 } 
@@ -16,14 +17,14 @@
     width: 25%;
     .degree {
         text-align: left;
-        font-size: 20rem;
-        line-height: 20rem;
+        font-size: 18rem;
+        line-height: 18rem;
         color: $colorized-text;
     }
     .degree_dimension {
         display: block;
         text-align: center;
-        margin-top: -11rem;
+        margin-top: -10rem;
         font-size: 8rem;
     }
 }
@@ -32,16 +33,129 @@
     justify-content: flex-end;
     width: 55%;
     font-size: 5rem;
-    @media (max-width: 550px ) {
-        font-size: 7rem;
-    }
 }
 .day_degree {
+    text-align: center;
     font-size: 5rem;
 }
 .day_degree_dimension {
     display: block;
     text-align: center;
-    margin-top: -3rem;
-    font-size: 2rem;
+    margin-top: -4rem;
+    font-size: 3rem;
+}
+
+@media (max-width: 1050px ) {
+    .temp {
+        .temp_data {
+            font-size: 18rem;
+            line-height: 18rem;
+            letter-spacing: -1.5rem;
+        }
+        .temp_dimension {
+            .degree {
+                font-size: 18rem;
+                line-height: 18rem;
+            }
+            .degree_dimension {
+                margin-top: -11rem;
+                font-size: 9rem;
+            }
+        }
+    }
+    .day_temp {
+        font-size: 4rem;
+    }
+    .day_degree {
+        font-size: 4rem;
+    }
+    .day_degree_dimension {
+        margin-top: -3.2rem;
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 900px ) {
+    .temp {
+        .temp_data {
+            font-size: 15rem;
+            line-height: 15rem;
+            letter-spacing: -1.5rem;
+        }
+        .temp_dimension {
+            .degree {
+                text-align: center;
+                font-size: 15rem;
+                line-height: 15rem;
+            }
+            .degree_dimension {
+                margin-top: -11rem;
+                font-size: 9rem;
+            }
+        }
+    }
+    .day_temp {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 800px ) {
+    .temp {
+        .temp_data {
+            font-size: 13rem;
+            line-height: 13rem;
+            letter-spacing: -1.5rem;
+        }
+        .temp_dimension {
+            .degree {
+                font-size: 13rem;
+                line-height: 13rem;
+            }
+            .degree_dimension {
+                margin-top: -8.5rem;
+                font-size: 7rem;
+            }
+        }
+    }
+    .day_temp {
+        font-size: 3.5rem;
+    }
+    .day_degree {
+        font-size: 3.5rem;
+    }
+    .day_degree_dimension {
+        margin-top: -2.8rem;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 450px ) {
+    .temp {
+        .temp_data {
+            font-size: 10rem;
+            line-height: 10rem;
+            letter-spacing: 0;
+        }
+        .temp_dimension {
+            align-items: flex-start;
+            .degree {
+                font-size: 10rem;
+                line-height: 10rem;
+            }
+            .degree_dimension {
+                margin-top: -7rem;
+                font-size: 6rem;
+            }
+        }
+    }
+    .day_temp {
+        font-size: 6rem;
+    }
+    .day_degree {
+        font-size: 6.5rem;
+    }
+    .day_degree_dimension {
+        margin-top: -4.8rem;
+        font-size: 3rem;
+    }
+
 }

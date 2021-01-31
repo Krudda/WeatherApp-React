@@ -3,11 +3,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    // filter: grayscale(1);
-	// -ms-filter: grayscale(1);
-	// -webkit-filter: grayscale(1) ;
-	// -moz-filter: grayscale(1);
-	// -o-filter: grayscale(1);
 }
 .map_area {
     height: 400px;
@@ -28,10 +23,6 @@
     align-items: flex-end;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
-    @media (max-width: 420px ) {
-        width: 60vw;
-     }
-
     .coordinates {
         color: $main-text-color;
         width: 100%;
@@ -42,5 +33,71 @@
             font-family: Roboto-Light, tahoma, sans-serif;
             margin: 0 2rem;
         }
+    }
+}
+
+@media (max-width: 1050px ) {
+    .block {
+        padding-top: 50px;
+    }
+    .map_area {
+        height: 350px;
+        width: 350px;
+    }
+    .map {
+        width: 350px;
+    }
+}
+
+@media (max-width: 900px ) {
+    .block {
+        width: 350px;
+    }
+    .map_area {
+        height: 300px;
+        width: 300px;
+    }
+    .map {
+        width: 300px;
+    }
+}
+
+@media (max-width: 750px) {
+    .block {
+        width: 300px;
+        padding-top: 30px;
+    }
+    .map_area {
+        height: 250px;
+        width: 250px;
+    }
+    .map {
+        width: 250px;
+    }
+}
+@media (max-width: 700px ) {
+    .block {
+        width: 400px;
+        padding-top: 30px;
+    }
+    .map_area {
+        height: 400px;
+        width: 400px;
+    }
+    .map {
+        width: 400px;
+    }
+}
+@media (max-width: 450px) {
+    .block {
+        width: 250px;
+        padding-top: 30px;
+    }
+    .map_area {
+        height: 250px;
+        width: 250px;
+    }
+    .map {
+        width: 250px;
     }
 }

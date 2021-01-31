@@ -70,10 +70,12 @@ const SearchBlock = () => {
         setSearchCity('');
     }
 
+
+
     return (
         <div className = {styles.block}>
             <form className = {styles.form}>
-            <LightTooltip title="input the city name">
+            <LightTooltip title="input the city name" >
                     <div>
                         <input 
                             className = {styles.input}

@@ -9,7 +9,7 @@ import {
     SHOW_IMAGE_SPINNER,
     HIDE_IMAGE_SPINNER,
     NEED_BACKGROUND, 
-    VOICE_IS_SYNTHESIZED
+    VOICE_IS_SYNTHESIZED,
 } from './types';
 
 import store from './store';
@@ -57,6 +57,7 @@ export function getWeather(location, tempDimension) {
             const timezone = weather ?  weather.timezone : null;
             dispatch(setMainBackground(ImageWeather, timezone));
         }
+
         dispatch(hideSpinner());
     }
 }

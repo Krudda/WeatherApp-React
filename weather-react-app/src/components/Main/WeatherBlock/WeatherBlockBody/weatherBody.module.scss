@@ -2,16 +2,14 @@
 
 .body {
     display: flex;
-    height: 55%;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
     padding: 0;
     &.hidden {
         display: none;
     }
-    @media (max-width: 550px ) {
-        flex-direction: column;
-    }
 }
-
 .date_time {
     padding-top: 10px;
     font-family: Roboto-Light, tahoma, sans-serif;
@@ -23,44 +21,22 @@
 .date_temp {
     display: flex;
     flex-direction: column;
-    width: 75%;
-    @media (max-width: 550px ) {
-        align-items: center;
-        width: 100%;
-    }
 }
-
 .desc {
-    margin-top: 2rem;
     width: 40%;
-    @media (max-width: 550px ) {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
     .desc_img {
-        height: 40%;
-        @media (max-width: 550px ) {
-            height: 180px;
-            text-align: center;
-        }
         .image {
             display: block;
             margin: 0 auto;
-            margin-top: -3rem;
+            margin-top: -2rem;
             height: 120%;
-            @media (max-width: 550px ) {
-                margin-top: -6rem;
-            }
         }
     }
     .desc_text {
+        margin-top: -10px;
         height: 60%;
         font-size: 1.4rem;
         font-family: Roboto-Light, tahoma, sans-serif;
-        @media (max-width: 550px ) {
-            margin-top: 2rem;
-        }
         p {
             margin: 6px 0;
         }
@@ -73,3 +49,54 @@
     }
 }
 
+@media (max-width: 920px ) {
+    .desc {
+        .desc_text {
+            font-size: 1.2rem;
+            .weather_desc {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px ) {
+    .desc {
+        justify-content: center;
+        display: flex;
+        flex-direction: row-reverse;
+        width: 50%;
+        .desc_img {
+            width: 40%;
+        }
+    }
+    .body {
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width: 450px ) {
+    .body {
+        flex-direction: column;
+    }
+    .date_temp {
+        align-items: center;
+        width: 100%;
+    }
+    .desc {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+        .desc_img {
+            text-align: center;
+            .image {
+                margin-top: -6rem;
+            }
+        }
+    }
+    .desc_text {
+        margin-top: 2rem;
+    }
+}

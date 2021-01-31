@@ -13,8 +13,8 @@ const MapBlock = () => {
     return (
         <div className={styles.block}>
             <div className={styles.map_area}>
-                {loading ?
-                    <Spinner /> :
+                { loading ?
+                    <Spinner add_class = 'map'/> :
                     <Map lon={lon} lat={lat} />
                 }
             </div>

@@ -49,7 +49,7 @@ input:-webkit-autofill:active {
 .background_image{
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   animation: fadein 2s;
   z-index: -1;
   background: linear-gradient(rgba(8, 15, 26, 0.5), rgba(8, 15, 26, 0.5)) center center / cover no-repeat;
@@ -91,7 +91,14 @@ input:-webkit-autofill:active {
 // }
 
 .wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
   padding: 0 60px;
-  min-height: calc(100vh - 3rem);
+  min-height: calc(100vh - 4rem);
   overflow: hidden;
+}
+@media (max-width: 800px ) {
+  .wrapper {
+    padding: 0 5%;
+  }
 }

@@ -2,53 +2,74 @@
 @import '../../../assets/scss/buttons';
 
 .block {
-    // height: 80%;
-        .form {
-            display: flex;
-            position: relative;
-            .input {
-                padding: 0 24px 0 10px;
-                width: 300px;
-                height: 4rem;
+    .form {
+        display: flex;
+        position: relative;
+        .input {
+            padding: 0 24px 0 10px;
+            width: 300px;
+            height: 4rem;
+            color: $main-text-color;
+            border-radius: 6px 0 0 6px;
+            border: 1.4px solid rgba(180,184,187,.8);
+            outline: none;
+            background-color: $secondary-gray;
+            font-family: Roboto-Light, tahoma, sans-serif;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            text-transform: uppercase;
+            &::placeholder {
                 color: $main-text-color;
-                border-radius: 6px 0 0 6px;
-                border: 1.4px solid rgba(180,184,187,.8);
-                outline: none;
-                background-color: $secondary-gray;
-                font-family: Roboto-Light, tahoma, sans-serif;
-                font-size: 1.5rem;
-                line-height: 1.5rem;
-                text-transform: uppercase;
-                &::placeholder {
-                    color: $main-text-color;
-                    text-transform: lowercase;
-                }
-                
+                text-transform: lowercase;
             }
+            @media (max-width: 500px ) {
+                width: 250px;
+            }
+            @media (max-width: 420px ) {
+                width: 200px;
+            }
+            @media (max-width: 315px ) {
+                width: 150px;
+            }
+        }
+        .button_mic {
+            padding: 0;
+            position: absolute;
+            right: 100px;
+            width: 20px;
+            height: 40px;
+            background-color: rgba(0,0,0,0);
+            border: none;
+            background-image: url('/assets/images/mic.png');
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            outline: none;
+            cursor: pointer;
+            &.active {
+                background-image: url('/assets/images/mic-active.png');
+            }
+            @media (max-width: 375px ) {
+                right: 25%;
+            }
+            @media (max-width: 340px ) {
+                right: 20%;
+            }
+            @media (max-width: 315px ) {
+                right: 25%;
+            }
+        }
  
-    @media (max-width: 720px ) {
-        width: 10vw;
-    }
-    @media (max-width: 550px ) {
-        width: 55px;
-    }
-    .button_mic {
-        padding: 0;
-        position: absolute;
-        right: 100px;
-        width: 20px;
-        height: 40px;
-        background-color: rgba(0,0,0,0);
-        border: none;
-        background-image: url('/assets/images/mic.png');
-        background-position: 50%;
-        background-repeat: no-repeat;
-        background-size: 100%;
-        outline: none;
-        cursor: pointer;
-        &.active {
-            background-image: url('/assets/images/mic-active.png');
+        @media (max-width: 720px ) {
+            // width: 100%;
+        }
+        @media (max-width: 500px ) {
+            // margin-top: 20px;
+            // justify-content: center;
         }
     }
+    @media (max-width: 640px ) {
+        // background-color: green;
+        // width: 65%;
     }
 }

@@ -4,7 +4,7 @@ import { SET_TEMP_DIMENSION,
     NEED_BACKGROUND, 
     SHOW_IMAGE_SPINNER, 
     HIDE_IMAGE_SPINNER,
-    VOICE_IS_SYNTHESIZED } from './types';
+    VOICE_IS_SYNTHESIZED} from './types';
 
 const initialState = {
     tempDimension : 'c',

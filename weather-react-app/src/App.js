@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getWeather, setTempDimension, 
   setSearchLocation, getRealUserLocation, 
-  setMainBackground } from './redux/actions';
+  } from './redux/actions';
 
 import Header from './components/Header';
 import Main from './components/Main';
@@ -31,7 +31,6 @@ function App() {
 
   useEffect(() => {
     if  (urlLocation.pathname === '/') {dispatch(getRealUserLocation())}
-    dispatch(setMainBackground());
   }, []);
 
   useEffect(() => {

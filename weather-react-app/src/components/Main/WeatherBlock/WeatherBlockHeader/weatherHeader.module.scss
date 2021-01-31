@@ -1,7 +1,7 @@
 @import '../../../../assets/scss/_constants';
 
 .w_header {
-    height: 20%;
+    min-height: 20%;
     font-size: 4rem;
     text-transform: uppercase;
     line-height: 4rem;
@@ -10,12 +10,39 @@
     &.hidden {
         display: none;
     }
-    @media (max-width: 550px ) {
+    .w_header_country {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 900px ) {
+    .w_header{
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+        .w_header_country {
+            font-size: 2.5rem;
+        }
+    }
+}
+@media (max-width: 800px ) {
+    .w_header{
+        font-size: 3rem;
+        line-height: 3rem;
+        .w_header_country {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+@media (max-width: 450px ) {
+    .w_header{
         height: 30%;
         text-align: center;
         padding-bottom: 1rem;
-    }
-    .w_header_country {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        .w_header_country {
+            font-size: 2rem;
+        }
     }
 }
