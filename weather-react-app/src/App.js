@@ -3,7 +3,7 @@ import {useDispatch, useSelector}  from 'react-redux';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getWeather, setTempDimension, 
-  setSearchLocation, getRealUserLocation, 
+  setSearchLocation, setUserLocation, 
   } from './redux/actions';
 
 import Header from './components/Header';
@@ -30,7 +30,7 @@ function App() {
   const currentLocation = searchLocation.city !=='' ? searchLocation : userLocation;
 
   useEffect(() => {
-    if  (urlLocation.pathname === '/') {dispatch(getRealUserLocation())}
+    if  (urlLocation.pathname === '/') {dispatch(setUserLocation())}
   }, []);
 
   useEffect(() => {

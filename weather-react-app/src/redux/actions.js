@@ -1,6 +1,6 @@
 import {
     SET_MAIN_BACKGROUND, 
-    GET_USER_LOCATION, 
+    SET_USER_LOCATION, 
     GET_WEATHER, 
     SET_SEARCH_LOCATION,
     SET_TEMP_DIMENSION,
@@ -24,10 +24,12 @@ export function setSearchLocation(city) {
     }
 }
 
-export function getRealUserLocation() {
+export function setUserLocation() {
     return async dispatch => {
+        dispatch(showSpinner());
         const userLocation = await getUserLocation();
-        dispatch({type: GET_USER_LOCATION, payload: userLocation})
+        dispatch({type: SET_USER_LOCATION, payload: userLocation});
+        dispatch(hideSpinner());
     }
 }
 
@@ -57,7 +59,6 @@ export function getWeather(location, tempDimension) {
             const timezone = weather ?  weather.timezone : null;
             dispatch(setMainBackground(ImageWeather, timezone));
         }
-
         dispatch(hideSpinner());
     }
 }
