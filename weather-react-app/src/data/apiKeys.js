@@ -6,5 +6,6 @@ export const keys = {
     // weather3KEY: 'cbd42db82999427b9411898a4208691e',
     weather3KEY: '09fb31e9894d4db3a4bd95047d5f8908',
     ipKEY: '1ba1b626152ab3',
+    ip2KEY: '592a7c203f734cae99c8ae57236f2407',
     mapKEY: '0dc6eb55-446b-488d-9432-18119fb70dff',
   };
