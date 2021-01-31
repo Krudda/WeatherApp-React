@@ -25,7 +25,7 @@ const ErrorTitle = styled(DialogTitle)({
     borderBottom: '1px solid',
     borderBottomColor: cyan['700'],
     '& h2': {
-        fontSize: '3rem',
+        fontSize: '2.5rem',
     }
 });
 const ErrorDialogContent = styled(DialogContent)({
