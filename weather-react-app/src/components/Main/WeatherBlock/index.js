@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import WeatherBlockHeader from './WeatherBlockHeader';
 import WeatherBlockBody from './WeatherBlockBody';
 import WeatherBlockFooter from './WeatherBlockFooter';
+import Spinner from '../../common/Spinner';
 
 import styles from './weather.module.scss';
-import Spinner from '../../common/Spinner';
 
 const WeatherBlock = ({ weather, location, tempDimension }) => {
 

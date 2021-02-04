@@ -41,7 +41,6 @@ const SearchBlock = () => {
         recognition.maxAlternatives = 1;
 
         recognition.onresult = function (event) {
-            console.log(event.results);
             const voiceCity = (event.results[0][0].transcript).toLowerCase();
             setSearchCity(voiceCity);
             dispatch(setSearchLocation(voiceCity));

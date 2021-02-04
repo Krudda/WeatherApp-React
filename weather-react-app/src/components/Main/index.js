@@ -8,7 +8,6 @@ import WeatherBlock from './WeatherBlock';
 
 import styles from './main.module.scss';
 
-
 const Main = () => {
     const weatherData = useSelector(state => state.weather.weather);
     const weather = weatherData.data;

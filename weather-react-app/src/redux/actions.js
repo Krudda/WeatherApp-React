@@ -12,7 +12,6 @@ import {
     VOICE_IS_SYNTHESIZED,
 } from './types';
 
-import store from './store';
 import getUserLocation from '../services/getUserLocation';
 import getMainBackground from '../services/getMainBackground';
 import getCurrentWeather from '../services/getWeather';
@@ -27,25 +26,29 @@ export function setSearchLocation(city) {
 export function setUserLocation() {
     return async dispatch => {
         dispatch(showSpinner());
-        const userLocation = await getUserLocation();
-        dispatch({type: SET_USER_LOCATION, payload: userLocation});
+        try {
+            const userLocation = await getUserLocation();
+            console.log('userLocation', userLocation)
+            dispatch({type: SET_USER_LOCATION, payload: userLocation});
+        } catch (err) {
+            dispatch({type: SET_USER_LOCATION, payload: {city: 'Nizhniy Novgorod', country: 'RU'}});
+        }
         dispatch(hideSpinner());
     }
 }
 
 export function setMainBackground(ImageWeather, timeZone) {
-    const state = store.getState();
-    const needImage  = state.serviceStates.needImage;
-
-    if (needImage) {
-        return async dispatch => {
-            dispatch(showImageSpinner());
+    return async (dispatch, getState) => {
+        const state = getState();
+        const needImage = state.serviceStates.needImage;
+        dispatch(showImageSpinner());
+        if (needImage) {
             const mainBackground = await getMainBackground(ImageWeather, timeZone);
             dispatch({type: SET_MAIN_BACKGROUND, payload: mainBackground});
-            dispatch(hideImageSpinner());
+        } else {
+            dispatch({type: NEED_BACKGROUND, payload: true});
         }
-    } else {
-        return {type: NEED_BACKGROUND, payload: true};
+        dispatch(hideImageSpinner());
     }
 }
 

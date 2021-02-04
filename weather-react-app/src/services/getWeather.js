@@ -11,7 +11,6 @@ async function getCurrentWeather(location, tempDimension) {
         const res = await fetch(url);
         if (res.status === 200) {
             const data = await res.json();
-            console.log('weather', data);
             return data;
         }
         if (res.status === 204) {

@@ -11,9 +11,7 @@ import Main from './components/Main';
 import RSS from './components/RSS';
 import Notification from './components/common/Notification';
 
-
 import styles from './app.module.scss';
-
 
 function App() {
 
@@ -40,7 +38,7 @@ function App() {
   }, [dispatch, currentLocation, tempDimension]);
 
   const backgroundImage = {
-    background: `linear-gradient(rgba(8, 15, 26, 0.5), rgba(8, 15, 26, 0.5)) center center / cover no-repeat, 
+    background: `linear-gradient(rgba(8, 15, 26, 0.5), rgba(8, 15, 26, 0.5)) center center / cover no-repeat,
     url(${image}) center center / cover no-repeat fixed`,
   }
 
@@ -64,7 +62,6 @@ function App() {
       <div className = {styles.background_image} style = {backgroundImage} >
       </div>
       {weather.error && !loading && <Notification error = {weather.error}/>}
-      
       { userLocation  &&
         <>
           <div className = {styles.wrapper}>

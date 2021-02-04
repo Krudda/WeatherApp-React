@@ -1,5 +1,4 @@
 @import '../../../assets/scss/constants';
-@import '../../../assets/scss/buttons';
 
 .block {
     .form {
@@ -59,17 +58,5 @@
                 right: 25%;
             }
         }
- 
-        @media (max-width: 720px ) {
-            // width: 100%;
-        }
-        @media (max-width: 500px ) {
-            // margin-top: 20px;
-            // justify-content: center;
-        }
-    }
-    @media (max-width: 640px ) {
-        // background-color: green;
-        // width: 65%;
     }
 }

@@ -10,15 +10,13 @@ async function getMainBackground(ImageWeather = '', timezone) {
     const season = getSeason();
     const nowHours =  now.split(':')[0];
     const times = (nowHours > 19 || nowHours < 9) ? 'night' : 'day';
-    const query = `nature ${season} ${ImageWeather}, ${times}`;
+    const query = `nature, ${currentTimeZone}, ${season}, ${ImageWeather}, ${times}`;
 
     const url = `https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&
     query=${query}
     &client_id=${key}`;
 
-    const defaultBGImageURL = `https://images.unsplash.com/
-    photo-1563823856120-88d1fe6b75bc?ixlib=rb-1.2.1&q=99&fm=jpg
-    &crop=entropy&cs=tinysrgb&w=2048&fit=max&ixid=eyJhcHBfaWQiOjcwOTV9`;
+    const defaultBGImageURL = 'https://momentum.photos/img/5ba1ea15-393c-428a-899b-13aafaebe222.jpg';
     
     try {
         const res = await fetch(url);

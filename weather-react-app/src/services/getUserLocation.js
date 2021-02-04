@@ -16,7 +16,6 @@ async function getUserLocation() {
     const data = await res.json();
     const location2 = {city: data.city.toLowerCase(), country: data.country.toLowerCase()};
     return location2;
-    // return {city: 'Nizhniy Novgorod', country: 'RU'}
   }
 }
 

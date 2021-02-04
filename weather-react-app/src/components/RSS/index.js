@@ -1,12 +1,11 @@
 import  {useSelector} from 'react-redux';
+
 import RSSDayForecast from './RSSDayForecast';
 import days from '../../data/days';
-
 
 import styles from './rss.module.scss';
 
 const RSS = () => {
-
     const forecast = useSelector(state => state.weather.weather.data);
 
     let content = '';
